@@ -53,7 +53,7 @@ RTP.Portals = {
     [6] = { --Hofborg: The Village
         {location = 6, destination = 5, x = 59163, y = 29521, z = 54676, cx = 0.325760, cy = 0.313665},
         {location = 6, destination = 7, x = 72719, y = 28975, z = 62201, cx = 0.626185, cy = 0.481040},
-        {location = 6, destination = 12, x = 70875, y = 28975, z = 65710, cx = 0.585159, cy = 0.558025},
+        {location = 6, destination = 12, x = 65158, y = 29226, z = 63763, cx = 0.458647, cy = 0.515038},
     },
     [7] = { --Hofborg: The Faire Grounds
         {location = 7, destination = 6, x = 59163, y = 29521, z = 54676, cx = 0.326250, cy = 0.313338},

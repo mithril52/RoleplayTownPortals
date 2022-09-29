@@ -24,7 +24,7 @@ function RTP.UI.ShowIndicatorContextMenu()
     
     local startingItems = {}
     for key,town in ipairs(RTP.Towns) do
-        local locationName = RTP.Locations[town.startingLocation].name
+        local locationName = RTP.BuildLocationName(RTP.Locations[town.startingLocation])
         
         startingItems[key] = {
             label = town.name..": "..locationName,
@@ -81,7 +81,7 @@ function RTP.UI.ShowPortalConfirmation(destinationId)
     local town = RTP.Towns[destination.townId]
     
     RTP.UI.ShowConfirmationDialog("Role-Play Town Portals", 
-            "|cffffffThis is a portal to |c00ffff"..destination.name.." in |c00ffff"..town.name.."|cffffff. Would you like to take the portal there now? ", 
+            "|cffffffThis is a portal to |c00ffff"..RTP.BuildLocationName(destination).." in |c00ffff"..town.name.."|cffffff. Would you like to take the portal there now? ", 
             function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
 end
 

@@ -2,6 +2,7 @@ if not RTP then RTP = {} end
 
 RTP.HouseMaps = {
     [16] = {id = 16, map = "glenumbra_base"},
+    [28] = {id = 28, map = "therift_base"},
     [29] = {id = 29, map = "windhelm_base"},
     [30] = {id = 30, map = "therift_base"},
     [40] = {id = 40, map = "grandtopal_base"},
@@ -28,6 +29,10 @@ RTP.Locations = {
     {id = 12, houseId = 30, owner = "@Kwittles", townId = 1, name = "Greysteel Workshop", desc = "(Tinker Shop)"},
     {id = 13, houseId = 30, owner = "@Oim", townId = 1, name = "The Bunkhouse"},
     {id = 14, houseId = 29, owner = "@Lightsb4ne", townId = 1, name = "Apothecary Backroom"},
+    {id = 15, houseId = 30, owner = "@Shadoe12", townId = 1, name = "The 500 Flagons", desc = "(Inn)"},
+    {id = 16, houseId = 29, owner = "@Oim", townId = 1, name = "Property Available"},
+    {id = 17, houseId = 28, owner = "@Oim", townId = 1, name = "Property Available"},
+    {id = 18, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
@@ -36,6 +41,8 @@ RTP.Portals = {
         {location = 1, destination = 4, x = 61236, y = 29454, z = 63784, cx = 0.371854, cy = 0.515201},
         {location = 1, destination = 5, x = 68081, y = 29215, z = 70844, cx = 0.523374, cy = 0.671625},
         {location = 1, destination = 14, x = 66110, y = 29300, z = 71976, cx = 0.479732, cy = 0.696960},
+        {location = 1, destination = 15, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
+        {location = 1, destination = 16, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
     },
     [2] = { --Hofborg: The Spirit Woods
         {location = 2, destination = 7, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
@@ -60,6 +67,8 @@ RTP.Portals = {
         {location = 6, destination = 7, x = 72719, y = 28975, z = 62201, cx = 0.626185, cy = 0.481040},
         {location = 6, destination = 12, x = 65158, y = 29226, z = 63763, cx = 0.458647, cy = 0.515038},
         {location = 6, destination = 13, x = 65741, y = 29248, z = 59408, cx = 0.471559, cy = 0.418437},
+        {location = 6, destination = 17, x = 71549, y = 28976, z = 66063, cx = 0.600196, cy = 0.565871},
+        {location = 6, destination = 18, x = 70553, y = 28975, z = 66568, cx = 0.578130, cy = 0.577149},
     },
     [7] = { --Hofborg: The Faire Grounds
         {location = 7, destination = 6, x = 59163, y = 29521, z = 54676, cx = 0.326250, cy = 0.313338},
@@ -77,7 +86,7 @@ RTP.Portals = {
     [11] = { --Hofborg: Hammer Long Hall
         {location = 11, destination = 2, x = 165387, y = 27707, z = 152042, cx = 0.669159, cy = 0.167601},
     },
-    [12] = { --Hofborg: Tinker Shop
+    [12] = { --Hofborg: Greysteel Workshop, (Tinker Shop)
         {location = 12, destination = 6, x = 26372, y = 26644, z = 19720, cx = 0.724823, cy = 0.549507},
     },
     [13] = { --Hofborg: The Bunkhouse
@@ -85,5 +94,17 @@ RTP.Portals = {
     },
     [14] = { --Hofborg: Apothecary Backroom
         {location = 14, destination = 1, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},
+    },
+    [15] = { --Hofborg: The 500 Flagons, (Inn)
+        {location = 15, destination = 1, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
+    },
+    [16] = { --Hofborg: Available for Rent/Purchase
+        {location = 16, destination = 1, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},
+    },
+    [17] = { --Hofborg: Available for Rent/Purchase
+        {location = 17, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
+    },
+    [18] = { --Hofborg: Available for Rent/Purchase
+        {location = 18, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
     },
 }

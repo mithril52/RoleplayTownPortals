@@ -39,10 +39,11 @@ RTP.Portals = {
         {location = 1, destination = 2, x = 59173, y = 29521, z = 54668, cx = 0.325924, cy = 0.313501},
         {location = 1, destination = 3, x = 66138, y = 29242, z = 59534, cx = 0.480059, cy = 0.421380},
         {location = 1, destination = 4, x = 61236, y = 29454, z = 63784, cx = 0.371854, cy = 0.515201},
-        {location = 1, destination = 5, x = 68081, y = 29215, z = 70844, cx = 0.523374, cy = 0.671625},
+        {location = 1, destination = 5, x = 67927, y = 29226, z = 71469, cx = 0.519941, cy = 0.685682},
         {location = 1, destination = 14, x = 66110, y = 29300, z = 71976, cx = 0.479732, cy = 0.696960},
         {location = 1, destination = 15, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
         {location = 1, destination = 16, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
+        {location = 1, destination = 6, x = 68205, y = 29222, z = 70409, cx = 0.526152, cy = 0.662144},
     },
     [2] = { --Hofborg: The Spirit Woods
         {location = 2, destination = 7, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
@@ -60,10 +61,10 @@ RTP.Portals = {
         {location = 4, destination = 9, x = 81731, y = 37254, z = 86133, cx = 0.566059, cy = 0.542607},
     },
     [5] = { --Hofborg: The Docks
-        {location = 5, destination = 6, x = 64422, y = 20197, z = 66950, cx = 0.468136, cy = 0.122154},
+        {location = 5, destination = 1, x = 64422, y = 20197, z = 66950, cx = 0.468136, cy = 0.122154},
     },
     [6] = { --Hofborg: The Village
-        {location = 6, destination = 5, x = 59163, y = 29521, z = 54676, cx = 0.325760, cy = 0.313665},
+        {location = 6, destination = 1, x = 59163, y = 29521, z = 54676, cx = 0.325760, cy = 0.313665},
         {location = 6, destination = 7, x = 72719, y = 28975, z = 62201, cx = 0.626185, cy = 0.481040},
         {location = 6, destination = 12, x = 65158, y = 29226, z = 63763, cx = 0.458647, cy = 0.515038},
         {location = 6, destination = 13, x = 65741, y = 29248, z = 59408, cx = 0.471559, cy = 0.418437},
@@ -97,6 +98,7 @@ RTP.Portals = {
     },
     [15] = { --Hofborg: The 500 Flagons, (Inn)
         {location = 15, destination = 1, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
+        {location = 15, destination = 6, x = 26660, y = 26626, z = 24759, cx = 0.725542, cy = 0.562105},
     },
     [16] = { --Hofborg: Available for Rent/Purchase
         {location = 16, destination = 1, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},

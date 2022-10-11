@@ -16,7 +16,6 @@ function RTP.Initialize()
 
     RTP.IndicatorMinimizedChanged()
     
-    zo_callLater(function() RTP.InitializeLocations() end, 500)
     zo_callLater(function() RTP.WaitForSceneManager() end, 500)
 end
 
@@ -29,6 +28,8 @@ function RTP.WaitForSceneManager()
     local fragment = ZO_HUDFadeSceneFragment:New(RTPIndicator, nil, 0)
     HUD_SCENE:AddFragment(fragment)
     HUD_UI_SCENE:AddFragment(fragment)
+    
+    RTP.InitializeLocations()
 end
 
 function RTP.IndicatorMinimizedChanged()

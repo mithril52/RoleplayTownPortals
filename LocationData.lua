@@ -15,13 +15,13 @@ RTP.Towns ={
     {id = 1, name = "Hofborg", startingLocation = 1}
 }
 RTP.Locations = {
-    {id = 1, houseId = 71, owner = "@Shadoe12", townId = 1, name = "The Borg"},
-    {id = 2, houseId = 71, owner = "@mithril52", townId = 1, name = "The Spirit Woods"},
-    {id = 3, houseId = 48, owner = "@Shadoe12", townId = 1, name = "The Motherhouse"},
+    {id = 1, houseId = 71, owner = "@Shadoe12", townId = 1, name = "The Borg", public = true},
+    {id = 2, houseId = 71, owner = "@mithril52", townId = 1, name = "The Spirit Woods", public = true},
+    {id = 3, houseId = 48, owner = "@Shadoe12", townId = 1, name = "The Motherhouse", public = true},
     {id = 4, houseId = 47, owner = "@Larawyn", townId = 1, name = "Saebjorn Long Hall"},
-    {id = 5, houseId = 40, owner = "@TheBerserker88", townId = 1, name = "The Docks"},
-    {id = 6, houseId = 71, owner = "@Oim", townId = 1, name = "The Village"},
-    {id = 7, houseId = 71, owner = "@Cosmere", townId = 1, name = "The Faire Grounds"},
+    {id = 5, houseId = 40, owner = "@TheBerserker88", townId = 1, name = "The Docks", public = true},
+    {id = 6, houseId = 71, owner = "@Oim", townId = 1, name = "The Village", public = true},
+    {id = 7, houseId = 71, owner = "@Cosmere", townId = 1, name = "The Faire Grounds", public = true},
     {id = 8, houseId = 29, owner = "@Larawyn", townId = 1, name = "Captain's Apartments"},
     {id = 9, houseId = 16, owner = "@rainbowbunny8", townId = 1, name = "Hall Mistress Apartments"},
     {id = 10, houseId = 71, owner = "@TheGreatHrimbo", townId = 1, name = "Clever Cave"},
@@ -33,6 +33,7 @@ RTP.Locations = {
     {id = 16, houseId = 29, owner = "@Oim", townId = 1, name = "Property Available"},
     {id = 17, houseId = 28, owner = "@Oim", townId = 1, name = "Property Available"},
     {id = 18, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    {id = 19, houseId = 28, owner = "@Svidyger", townId = 1, name = "Eiwa's Lodge"},
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
@@ -70,6 +71,7 @@ RTP.Portals = {
         {location = 6, destination = 13, x = 65741, y = 29248, z = 59408, cx = 0.471559, cy = 0.418437},
         {location = 6, destination = 17, x = 71549, y = 28976, z = 66063, cx = 0.600196, cy = 0.565871},
         {location = 6, destination = 18, x = 70553, y = 28975, z = 66568, cx = 0.578130, cy = 0.577149},
+        {location = 6, destination = 19, x = 71354, y = 28975, z = 61026, cx = 0.595783, cy = 0.454397},
     },
     [7] = { --Hofborg: The Faire Grounds
         {location = 7, destination = 6, x = 59163, y = 29521, z = 54676, cx = 0.326250, cy = 0.313338},
@@ -108,5 +110,8 @@ RTP.Portals = {
     },
     [18] = { --Hofborg: Available for Rent/Purchase
         {location = 18, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
+    },
+    [19] = { --Eiwa's Lodge
+        {location = 19, destination = 6, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
 }

@@ -22,6 +22,7 @@ function RTP.UI.ShowIndicatorContextMenu()
         AddCustomMenuItem("Generate Portal text", function() RTP.UI.GeneratePortalText() end)
     end
     
+--[[
     local startingItems = {}
     for key,town in ipairs(RTP.Towns) do
         local locationName = RTP.BuildLocationName(RTP.Locations[town.startingLocation])
@@ -33,7 +34,27 @@ function RTP.UI.ShowIndicatorContextMenu()
     end
     
     AddCustomSubMenuItem("Town Starting Locations", startingItems)
-    
+]]
+
+    for townId,town in ipairs(RTP.Towns) do
+        local publicLocations = {}
+        local index = 1
+        for _,location in ipairs(RTP.Locations) do
+            if location.public and location.townId == townId then
+                local locationName = RTP.BuildLocationName(location)
+
+                publicLocations[index] = {
+                    label = locationName,
+                    callback = function() RTP.UI.JumpToPortalLocationById(location.id) end
+                }
+                
+                index = index + 1
+            end
+        end
+
+        AddCustomSubMenuItem(town.name.." Public Locations", publicLocations)
+    end
+
     local minimizedIndex = AddCustomMenuItem("Minimize UI", 
             function() 
                 RTP.SavedVars.IndicatorMinimized = not RTP.SavedVars.IndicatorMinimized

@@ -130,6 +130,17 @@ function RTP.CreateMapPins()
             }
     )
     
+    LibMapPins:SetClickHandlers(RTP.MapPinTypeId, {
+        {
+            callback    = function(pin) 
+                local _,tag = pin:GetPinTypeAndTag()
+                if tag.destination == nil then return end
+
+                RTP.UI.JumpToPortalLocationById(tag.destination.id)
+            end,
+        },
+    })
+    
     LibMapPins:AddPinFilter(RTP.MapPinTypeId, "Role-Play Town Portals", nil, nil, nil, nil)
 end
 

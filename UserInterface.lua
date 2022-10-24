@@ -21,20 +21,6 @@ function RTP.UI.ShowIndicatorContextMenu()
     if IsControlKeyDown() then
         AddCustomMenuItem("Generate Portal text", function() RTP.UI.GeneratePortalText() end)
     end
-    
---[[
-    local startingItems = {}
-    for key,town in ipairs(RTP.Towns) do
-        local locationName = RTP.BuildLocationName(RTP.Locations[town.startingLocation])
-        
-        startingItems[key] = {
-            label = town.name..": "..locationName,
-            callback = function() RTP.UI.JumpToPortalLocationById(town.startingLocation) end
-        }
-    end
-    
-    AddCustomSubMenuItem("Town Starting Locations", startingItems)
-]]
 
     for townId,town in ipairs(RTP.Towns) do
         local publicLocations = {}

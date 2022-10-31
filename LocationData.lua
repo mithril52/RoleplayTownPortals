@@ -15,19 +15,19 @@ RTP.Towns ={
     {id = 1, name = "Hofborg", startingLocation = 1}
 }
 RTP.Locations = {
-    {id = 1, houseId = 71, owner = "@Shadoe12", townId = 1, name = "The Borg", public = true},
+    {id = 1, houseId = 71, owner = "@Larawyn", townId = 1, name = "The Borg", public = true},
     {id = 2, houseId = 71, owner = "@mithril52", townId = 1, name = "The Spirit Woods", public = true},
     {id = 3, houseId = 48, owner = "@Shadoe12", townId = 1, name = "The Motherhouse", public = true},
     {id = 4, houseId = 47, owner = "@Larawyn", townId = 1, name = "Saebjorn Long Hall"},
     {id = 5, houseId = 40, owner = "@TheBerserker88", townId = 1, name = "The Docks", public = true},
-    {id = 6, houseId = 71, owner = "@Oim", townId = 1, name = "The Village", public = true},
+    {id = 6, houseId = 71, owner = "@Tart56", townId = 1, name = "The Village", public = true},
     {id = 7, houseId = 71, owner = "@Cosmere", townId = 1, name = "The Faire Grounds", public = true},
     {id = 8, houseId = 29, owner = "@Larawyn", townId = 1, name = "Captain's Apartments"},
     {id = 9, houseId = 16, owner = "@rainbowbunny8", townId = 1, name = "Hall Mistress Apartments"},
     {id = 10, houseId = 71, owner = "@TheGreatHrimbo", townId = 1, name = "Clever Cave"},
     {id = 11, houseId = 81, owner = "@sinath41", townId = 1, name = "Hammer Long Hall"},
     {id = 12, houseId = 30, owner = "@Kwittles", townId = 1, name = "Greysteel Workshop", desc = "(Tinker Shop)"},
-    {id = 13, houseId = 30, owner = "@Oim", townId = 1, name = "The Bunkhouse"},
+    {id = 13, houseId = 30, owner = "@Larawyn", townId = 1, name = "The Bunkhouse"},
     {id = 14, houseId = 29, owner = "@Lightsb4ne", townId = 1, name = "Apothecary Backroom"},
     {id = 15, houseId = 30, owner = "@Shadoe12", townId = 1, name = "The 500 Flagons", desc = "(Inn)"},
     {id = 16, houseId = 29, owner = "@Oim", townId = 1, name = "Property Available"},

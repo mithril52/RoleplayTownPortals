@@ -17,7 +17,7 @@ RTP.Towns ={
 RTP.Locations = {
     {id = 1, houseId = 71, owner = "@Larawyn", townId = 1, name = "The Borg", public = true},
     {id = 2, houseId = 71, owner = "@mithril52", townId = 1, name = "The Spirit Woods", public = true},
-    {id = 3, houseId = 48, owner = "@Shadoe12", townId = 1, name = "The Motherhouse", public = true},
+    {id = 3, houseId = 48, owner = "@Larawyn", townId = 1, name = "The Motherhouse", public = true},
     {id = 4, houseId = 47, owner = "@Larawyn", townId = 1, name = "Saebjorn Long Hall"},
     {id = 5, houseId = 40, owner = "@TheBerserker88", townId = 1, name = "The Docks", public = true},
     {id = 6, houseId = 71, owner = "@Tart56", townId = 1, name = "The Village", public = true},
@@ -29,7 +29,7 @@ RTP.Locations = {
     {id = 12, houseId = 30, owner = "@Kwittles", townId = 1, name = "Greysteel Workshop", desc = "(Tinker Shop)"},
     {id = 13, houseId = 30, owner = "@Larawyn", townId = 1, name = "The Bunkhouse"},
     {id = 14, houseId = 29, owner = "@Lightsb4ne", townId = 1, name = "Apothecary Backroom"},
-    {id = 15, houseId = 30, owner = "@Shadoe12", townId = 1, name = "The 500 Flagons", desc = "(Inn)"},
+    {id = 15, houseId = 30, owner = "@mithril52", townId = 1, name = "Kyne's Keg", desc = "(Inn)"},
     {id = 16, houseId = 29, owner = "@Oim", townId = 1, name = "Property Available"},
     {id = 17, houseId = 28, owner = "@Oim", townId = 1, name = "Property Available"},
     {id = 18, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
@@ -98,9 +98,9 @@ RTP.Portals = {
     [14] = { --Hofborg: Apothecary Backroom
         {location = 14, destination = 1, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},
     },
-    [15] = { --Hofborg: The 500 Flagons, (Inn)
+    [15] = { --Hofborg: Kyne's Keg, (Inn)
         {location = 15, destination = 1, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
-        {location = 15, destination = 6, x = 26660, y = 26626, z = 24759, cx = 0.725542, cy = 0.562105},
+        {location = 15, destination = 6, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665},
     },
     [16] = { --Hofborg: Available for Rent/Purchase
         {location = 16, destination = 1, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},

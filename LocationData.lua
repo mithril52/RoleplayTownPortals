@@ -30,10 +30,11 @@ RTP.Locations = {
     {id = 13, houseId = 30, owner = "@Larawyn", townId = 1, name = "The Bunkhouse"},
     {id = 14, houseId = 29, owner = "@Lightsb4ne", townId = 1, name = "Apothecary Backroom"},
     {id = 15, houseId = 30, owner = "@mithril52", townId = 1, name = "Kyne's Keg", desc = "(Inn)"},
-    {id = 16, houseId = 29, owner = "@Oim", townId = 1, name = "Property Available"},
-    {id = 17, houseId = 28, owner = "@Oim", townId = 1, name = "Property Available"},
+    {id = 16, houseId = 28, owner = "@ThePageOfCups", townId = 1, name = "Healer's Cottage"},
+    {id = 17, houseId = 28, owner = "@WhenDaxAttacks", townId = 1, name = "Sorcerer's Retreat"},
     {id = 18, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
     {id = 19, houseId = 28, owner = "@Svidyger", townId = 1, name = "Eiwa's Lodge"},
+    {id = 20, houseId = 16, owner = "@Larawyn", townId = 1, name = "Temple Dormitory"},
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
@@ -55,6 +56,7 @@ RTP.Portals = {
     [3] = { --Hofborg: The Motherhouse
         {location = 3, destination = 1, x = 50417, y = 39220, z = 94570, cx = 0.277314, cy = 0.799364, radius = 20},
         {location = 3, destination = 6, x = 52148, y = 17738, z = 87341, cx = 0.300159, cy = 0.703814},
+        {location = 3, destination = 20, x = 50010, y = 20449, z = 83083, cx = 0.271752, cy = 0.647199},
     },
     [4] = { --Hofborg: Saebjorn Long Hall
         {location = 4, destination = 1, x = 82991, y = 36927, z = 83368, cx = 0.566294, cy = 0.541505},
@@ -102,10 +104,10 @@ RTP.Portals = {
         {location = 15, destination = 1, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
         {location = 15, destination = 6, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665},
     },
-    [16] = { --Hofborg: Available for Rent/Purchase
-        {location = 16, destination = 1, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},
+    [16] = { --Hofborg: Healer's Cottage
+        {location = 16, destination = 1, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
-    [17] = { --Hofborg: Available for Rent/Purchase
+    [17] = { --Kjell's Cottage
         {location = 17, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
     },
     [18] = { --Hofborg: Available for Rent/Purchase
@@ -113,5 +115,8 @@ RTP.Portals = {
     },
     [19] = { --Eiwa's Lodge
         {location = 19, destination = 6, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+    },
+    [20] = { --Lara new
+        {location = 20, destination = 3, x = 19650, y = 20026, z = 29035, cx = 0.312595, cy = 0.789945},
     },
 }

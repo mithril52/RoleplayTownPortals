@@ -2,7 +2,7 @@ if not RTP then RTP = {} end
 
 RTP.HouseMaps = {
     [16] = {id = 16, map = "glenumbra_base"},
-    [28] = {id = 28, map = "therift_base"},
+    [28] = {id = 28, map = "therift_base"}, -- Autumns Gate
     [29] = {id = 29, map = "windhelm_base"},
     [30] = {id = 30, map = "therift_base"},
     [40] = {id = 40, map = "grandtopal_base"},
@@ -25,7 +25,7 @@ RTP.Locations = {
     [9] = {id = 9, houseId = 16, owner = "@rainbowbunny8", townId = 1, name = "Hall Mistress Apartments"},
     [10] = {id = 10, houseId = 71, owner = "@TheGreatHrimbo", townId = 1, name = "Clever Cave"},
     [11] = {id = 11, houseId = 81, owner = "@sinath41", townId = 1, name = "Hammer Long Hall"},
-    [12] = {id = 12, houseId = 30, owner = "@Kwittles", townId = 1, name = "Greysteel Workshop", desc = "(Tinker Shop)"},
+    [12] = {id = 12, houseId = 28, owner = "@Trology", townId = 1, name = "Bren's Tinkershop"},
     [13] = {id = 13, houseId = 30, owner = "@Larawyn", townId = 1, name = "The Bunkhouse"},
     [14] = {id = 14, houseId = 29, owner = "@Lightsb4ne", townId = 1, name = "Apothecary Backroom"},
     [15] = {id = 15, houseId = 30, owner = "@mithril52", townId = 1, name = "Kyne's Keg", desc = "(Inn)"},
@@ -86,8 +86,8 @@ RTP.Portals = {
     [11] = { --Hofborg: Hammer Long Hall
         {location = 11, destination = 2, x = 165387, y = 27707, z = 152042, cx = 0.669159, cy = 0.167601},
     },
-    [12] = { --Hofborg: Greysteel Workshop, (Tinker Shop)
-        {location = 12, destination = 6, x = 26372, y = 26644, z = 19720, cx = 0.724823, cy = 0.549507},
+    [12] = { --Hofborg: Bren's Tinkershop
+        {location = 12, destination = 6, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [13] = { --Hofborg: The Bunkhouse
         {location = 13, destination = 6, x = 26372, y = 26645, z = 19720, cx = 0.724823, cy = 0.549507},

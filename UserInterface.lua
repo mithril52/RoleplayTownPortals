@@ -60,11 +60,6 @@ end
 
 function RTP.UI.GeneratePortalText()
     local houseId = GetCurrentZoneHouseId()
-    if houseId == 0 then
-        d("[RTP]: Portals can only be created in player homes")
-        return;
-    end
-    
     local owner = GetCurrentHouseOwner()
     local zoneId, x, y, z = GetUnitWorldPosition("player")
     local normalizedX, normalizedZ = GetMapPlayerPosition("player")

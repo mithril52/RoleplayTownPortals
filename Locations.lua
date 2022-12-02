@@ -39,7 +39,7 @@ function RTP.OnZoneChanged()
     COMPASS_PINS:RefreshPins(RTP.CONST.COMPASS_PIN_TYPE)
     LibMapPins:RefreshPins(RTP.CONST.MAP_PIN_TYPE)
     
-    if RTP.CurrentLocation ~= nil then
+    if RTP.CurrentLocation ~= nil and RTP.CurrentLocation.houseId < 500 then
         local town = RTP.Towns[RTP.CurrentLocation.townId]
         
         RTPZoneChangeIndicatorLabel:SetText(string.format(
@@ -120,10 +120,17 @@ function RTP.CreateMapPins()
                 creator = function(pin)
                     local _, pinTag = pin:GetPinTypeAndTag()
                     if pinTag.destination == nil then return end
+
                     
-                    InformationTooltip:AddLine(pinTag.destination.name)
-                    if pinTag.destination.desc ~= nil then
-                        InformationTooltip:AddLine(pinTag.destination.desc)
+                    if RTP.CurrentLocation.houseId >= 500 then
+                        local town = RTP.Towns[pinTag.destination.townId]
+                        InformationTooltip:AddLine(town.name)
+                        InformationTooltip:AddLine("("..pinTag.destination.name..")")
+                    else
+                        InformationTooltip:AddLine(pinTag.destination.name)
+                        if pinTag.destination.desc ~= nil then
+                            InformationTooltip:AddLine(pinTag.destination.desc)
+                        end
                     end
                 end,
                 tooltip = ZO_MAP_TOOLTIP_MODE.INFORMATION,
@@ -200,11 +207,16 @@ function RTP.GenerateCylinders()
         if listValue ~= nil then
             for key, value in pairs(listValue) do
                 local radius = 220
-
+                local height = 60
+                
                 if value.radius ~= nil then
                     radius = value.radius
                 end
-                value.cylinder = RTP.UTIL.GenerateCylinder({x = value.x, y = value.y, z = value.z}, radius)
+
+                if value.height ~= nil then
+                    height = value.height
+                end
+                value.cylinder = RTP.UTIL.GenerateCylinder({x = value.x, y = value.y, z = value.z}, radius, height)
             end
         end
     end
@@ -212,6 +224,17 @@ end
 
 function RTP.SetCurrentLocation()
     local houseId = GetCurrentZoneHouseId()
+
+    if houseId == 0 then
+        local _, map = LibMapPins:GetZoneAndSubzone()
+
+        for key, value in  pairs(RTP.HouseMaps) do
+            if(value.id >= 500 and value.map == map) then
+                houseId = value.id
+            end
+        end
+    end
+    
     if houseId ~= 0 then
         local owner = GetCurrentHouseOwner()
         
@@ -243,7 +266,7 @@ function RTP.UpdateLocationUI()
     RTP.UI.IndicatorTooltip = "Role-Play Town Portals"
     
     -- Populate appropriate labels
-    if RTP.CurrentLocation == nil then
+    if RTP.CurrentLocation == nil or RTP.CurrentLocation.houseId >= 500 then
         if RTP.SavedVars.IndicatorMinimized then
             RTP.UI.IndicatorTooltip = "Role-Play Town Portals |cffffff\nLocation: |cFF9400Not in a Town"
         else

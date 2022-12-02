@@ -9,7 +9,9 @@ RTP.HouseMaps = {
     [47] = {id = 47, map = "coldharbour_base"},
     [48] = {id = 48, map = "falkreathhousing_base"},
     [71] = {id = 71, map = "moonsugarmeadow_base"},
-    [81] = {id = 81, map = "antiquariansalpineext_base"}
+    [75] = {id = 75, map = "forgemasterfalls_base"},
+    [81] = {id = 81, map = "antiquariansalpineext_base"},
+    [500] = {id = 500, map = "westernskryim_base"},
 }
 RTP.Towns ={
     {id = 1, name = "Hofborg", startingLocation = 1}
@@ -19,12 +21,12 @@ RTP.Locations = {
     [2] = {id = 2, houseId = 71, owner = "@mithril52", townId = 1, name = "The Spirit Woods", public = true},
     [3] = {id = 3, houseId = 48, owner = "@Larawyn", townId = 1, name = "The Motherhouse", public = true},
     [4] = {id = 4, houseId = 47, owner = "@Larawyn", townId = 1, name = "Saebjorn Long Hall"},
-    [5] = {id = 5, houseId = 40, owner = "@TheBerserker88", townId = 1, name = "The Docks", public = true},
+    [5] = {id = 5, houseId = 75, owner = "@mithril52", townId = 1, name = "The Docks", public = true},
     [6] = {id = 6, houseId = 71, owner = "@Tart56", townId = 1, name = "The Village", public = true},
     [8] = {id = 8, houseId = 29, owner = "@Larawyn", townId = 1, name = "Captain's Apartments"},
     [9] = {id = 9, houseId = 16, owner = "@rainbowbunny8", townId = 1, name = "Hall Mistress Apartments"},
     [10] = {id = 10, houseId = 71, owner = "@TheGreatHrimbo", townId = 1, name = "Clever Cave"},
-    [11] = {id = 11, houseId = 81, owner = "@sinath41", townId = 1, name = "Hammer Long Hall"},
+    [11] = {id = 11, houseId = 81, owner = "@sinath41", townId = 1, name = "Warrior's Respite", desc = "(Thane's Hall)"},
     [12] = {id = 12, houseId = 28, owner = "@Trology", townId = 1, name = "Bren's Tinkershop"},
     [13] = {id = 13, houseId = 30, owner = "@Larawyn", townId = 1, name = "The Bunkhouse"},
     [14] = {id = 14, houseId = 29, owner = "@Lightsb4ne", townId = 1, name = "Apothecary Backroom"},
@@ -34,6 +36,12 @@ RTP.Locations = {
     [18] = {id = 18, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
     [19] = {id = 19, houseId = 28, owner = "@Svidyger", townId = 1, name = "Eiwa's Lodge"},
     [20] = {id = 20, houseId = 16, owner = "@Larawyn", townId = 1, name = "Temple Dormitory"},
+    [21] = {id = 21, houseId = 500, owner = "", townId = 1, name = ""},
+    [22] = {id = 22, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    [23] = {id = 23, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    [24] = {id = 24, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Orcish)"},
+    [25] = {id = 25, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    [26] = {id = 26, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Forgemaster)"},
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
@@ -45,6 +53,7 @@ RTP.Portals = {
         {location = 1, destination = 15, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
         {location = 1, destination = 16, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
         {location = 1, destination = 6, x = 68205, y = 29222, z = 70409, cx = 0.526152, cy = 0.662144},
+        {location = 1, destination = 22, x = 64049, y = 29226, z = 70606, cx = 0.433965, cy = 0.666558},
     },
     [2] = { --Hofborg: The Spirit Woods
         {location = 2, destination = 6, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
@@ -63,7 +72,11 @@ RTP.Portals = {
         {location = 4, destination = 9, x = 81731, y = 37254, z = 86133, cx = 0.566059, cy = 0.542607},
     },
     [5] = { --Hofborg: The Docks
-        {location = 5, destination = 1, x = 64422, y = 20197, z = 66950, cx = 0.468136, cy = 0.122154},
+        {location = 5, destination = 1, x = 76652, y = 14513, z = 99360, cx = 0.618104, cy = 0.550230},
+        {location = 5, destination = 23, x = 81657, y = 14319, z = 101067, cx = 0.787284, cy = 0.607930},
+        {location = 5, destination = 24, x = 78111, y = 14516, z = 101327, cx = 0.667422, cy = 0.616718},
+        {location = 5, destination = 25, x = 78168, y = 14503, z = 94768, cx = 0.669348, cy = 0.395011},
+        {location = 5, destination = 26, x = 81556, y = 14509, z = 95241, cx = 0.783870, cy = 0.410999},
     },
     [6] = { --Hofborg: The Village
         {location = 6, destination = 1, x = 59163, y = 29521, z = 54676, cx = 0.325760, cy = 0.313665},
@@ -113,5 +126,8 @@ RTP.Portals = {
     },
     [20] = { --Lara new
         {location = 20, destination = 3, x = 19650, y = 20026, z = 29035, cx = 0.312595, cy = 0.789945},
+    },
+    [21] = { --Skyrim portal to Hofborg
+        {location = 21, destination = 5, x = 85201, y = 22049, z = 163631, cx = 0.117692, cy = 0.356798, radius = 400, height = 200},
     },
 }

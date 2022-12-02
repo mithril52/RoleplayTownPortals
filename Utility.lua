@@ -23,19 +23,19 @@ function RTP.UTIL.PointWithinCylinder(point, cylinder)
     end
 end
 
-function RTP.UTIL.GenerateCylinder(location, radius)
+function RTP.UTIL.GenerateCylinder(location, radius, height)
     local cylinder = {
         top = {
             x = location.x,
-            y = location.y + 30,
+            y = location.y + (height / 2),
             z = location.z
         },
         bottom = {
             x = location.x,
-            y = location.y - 30,
+            y = location.y - (height / 2),
             z = location.z
         },
-        lengthSq = 3600, -- 60 * 60
+        lengthSq = height * height,
         radiusSq = radius * radius
     }
     

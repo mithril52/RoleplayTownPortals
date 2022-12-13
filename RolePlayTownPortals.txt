@@ -12,6 +12,7 @@ Utility.lua
 UserInterface.lua
 Locations.lua
 Startup.lua
+Dialogue.lua
 
 Xml/Indicator.xml
 Xml/ZoneChangeIndicator.xml

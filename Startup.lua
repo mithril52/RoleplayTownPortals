@@ -53,3 +53,4 @@ function RTP.OnAddOnLoaded(event, addonName)
 end
 
 EVENT_MANAGER:RegisterForEvent(RTP.ADDON_NAME, EVENT_ADD_ON_LOADED, RTP.OnAddOnLoaded)
+EVENT_MANAGER:RegisterForEvent(RTP.ADDON_NAME, EVENT_CHATTER_BEGIN, RTP.OnChatterBegin)

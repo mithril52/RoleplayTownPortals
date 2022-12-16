@@ -22,10 +22,10 @@ function RTP.UI.ShowIndicatorContextMenu()
         AddCustomMenuItem("Generate Portal text", function() RTP.UI.GeneratePortalText() end)
     end
 
-    for townId,town in ipairs(RTP.Towns) do
+    for townId,town in pairs(RTP.Towns) do
         local publicLocations = {}
         local index = 1
-        for _,location in ipairs(RTP.Locations) do
+        for _,location in pairs(RTP.Locations) do
             if location.public and location.townId == townId then
                 local locationName = RTP.BuildLocationName(location)
 

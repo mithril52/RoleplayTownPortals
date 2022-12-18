@@ -87,6 +87,10 @@ function RTP.UI.ShowPortalConfirmation(destinationId)
             function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
 end
 
+function RTP.UI.ShowSelectLocationDialog(destinations)
+    
+end
+
 function RTP.UI.JumpToPortalLocationById(locationId)
     local location = RTP.Locations[locationId]
 

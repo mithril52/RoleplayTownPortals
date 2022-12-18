@@ -72,7 +72,7 @@ function RTP.CreateCompassPins()
                 for _, portal in pairs(RTP.Portals[RTP.CurrentLocation.id]) do
                     if portal.cx == nil then return end
                     
-                    local name = RTP.Locations[portal.destination].name
+                    local name = RTP.Locations[portal.destinations[1]].name
                     pinManager:CreatePin(RTP.CONST.COMPASS_PIN_TYPE, portal, portal.cx, portal.cy, name)
                 end
             end,
@@ -106,8 +106,9 @@ function RTP.CreateMapPins()
                     
                     local _, subzone = LibMapPins:GetZoneAndSubzone();
                     if RTP.HouseMaps[RTP.CurrentLocation.houseId].map ~= subzone then return end
-                    local destination = RTP.Locations[portal.destination]
-                    LibMapPins:CreatePin(RTP.CONST.MAP_PIN_TYPE, {portal = portal, destination = destination}, portal.cx, portal.cy)
+
+                    local destinations = RTP.Locations[portal.destinations]
+                    LibMapPins:CreatePin(RTP.CONST.MAP_PIN_TYPE, {portal = portal, destinations = destinations}, portal.cx, portal.cy)
                 end
             end, 
             nil,
@@ -119,18 +120,24 @@ function RTP.CreateMapPins()
             {
                 creator = function(pin)
                     local _, pinTag = pin:GetPinTypeAndTag()
-                    if pinTag.destination == nil then return end
+                    if pinTag.destinations == nil then return end
 
                     
                     if RTP.CurrentLocation.houseId >= 500 then
-                        local town = RTP.Towns[pinTag.destination.townId]
+                        local town = RTP.Towns[pinTag.destinations[1].townId]
                         InformationTooltip:AddLine(town.name)
-                        InformationTooltip:AddLine("("..pinTag.destination.name..")")
+                        InformationTooltip:AddLine("("..pinTag.destinations[1].name..")")
                     else
-                        InformationTooltip:AddLine(pinTag.destination.name)
-                        if pinTag.destination.desc ~= nil then
-                            InformationTooltip:AddLine(pinTag.destination.desc)
+                        for _,destinationId in pairs(pinTag.destinations) do
+                            local destination = RTP.Locations[destinationId]
+                            local line = destination.name
+                            if pinTag.destination.desc ~= nil then
+                                line = line.." - "..pinTag.destination.desc
+                            end
+                            
+                            InformationTooltip:AddLine(line)
                         end
+                        
                     end
                 end,
                 tooltip = ZO_MAP_TOOLTIP_MODE.INFORMATION,
@@ -141,9 +148,13 @@ function RTP.CreateMapPins()
         {
             callback    = function(pin) 
                 local _,tag = pin:GetPinTypeAndTag()
-                if tag.destination == nil then return end
+                if tag.destinations == nil then return end
 
-                RTP.UI.JumpToPortalLocationById(tag.destination.id)
+                if GetTableLength(tag.destinations) == 1 then
+                    RTP.UI.JumpToPortalLocationById(tag.destination.id)
+                else
+                    RTP.UI.ShowSelectLocationDialog(tag.destinations)
+                end
             end,
         },
     })

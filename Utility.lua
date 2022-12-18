@@ -52,4 +52,12 @@ function RTP.UTIL.PositionsEqual(position1, position2)
     end
 
     return position1.x == position2.x and position1.y == position2.y and position1.z == position2.z
-end 
+end
+
+function GetTableLength(tbl)
+    local getN = 0
+    for n in pairs(tbl) do
+        getN = getN + 1
+    end
+    return getN
+end

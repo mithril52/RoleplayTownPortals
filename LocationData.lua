@@ -4,10 +4,11 @@ RTP.HouseMaps = {
     [16] = {id = 16, map = "glenumbra_base"},
     [28] = {id = 28, map = "therift_base"}, -- Autumns Gate
     [29] = {id = 29, map = "windhelm_base"},
-    [30] = {id = 30, map = "therift_base"},
+    [30] = {id = 30, map = "therift_base"}, --Old Mistveil Manor
     [40] = {id = 40, map = "grandtopal_base"},
     [47] = {id = 47, map = "coldharbour_base"},
     [48] = {id = 48, map = "falkreathhousing_base"},
+    [63] = {id = 63, map = "snowglobe_base"}, --Snowglobe
     [71] = {id = 71, map = "moonsugarmeadow_base"},
     [75] = {id = 75, map = "forgemasterfalls_base"},
     [81] = {id = 81, map = "antiquariansalpineext_base"},
@@ -33,14 +34,14 @@ RTP.Locations = {
     [15] = {id = 15, houseId = 30, owner = "@mithril52", townId = 1, name = "Kyne's Keg", desc = "(Inn)", public = true},
     [16] = {id = 16, houseId = 28, owner = "@ThePageOfCups", townId = 1, name = "Healer's Cottage"},
     [17] = {id = 17, houseId = 28, owner = "@WhenDaxAttacks", townId = 1, name = "Sorcerer's Retreat"},
-    [18] = {id = 18, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    [18] = {id = 18, houseId = 28, owner = "@Paulw3030", townId = 1, name = "Shore-Strider's Leather & Supplies"},
     [19] = {id = 19, houseId = 28, owner = "@Svidyger", townId = 1, name = "Eiwa's Lodge"},
     [20] = {id = 20, houseId = 16, owner = "@Larawyn", townId = 1, name = "Temple Dormitory"},
     [21] = {id = 21, houseId = 500, owner = "", townId = 1, name = ""},
-    [22] = {id = 22, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
-    [23] = {id = 23, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    [22] = {id = 22, houseId = 30, owner = "@RavenNoble", townId = 1, name = "Murtagh's Place"},
+    [23] = {id = 23, houseId = 63, owner = "@BoneDecipherer", townId = 1, name = "Mercury & Maps", desc = "(Alchemical Shop)"},
     [24] = {id = 24, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Orcish)"},
-    [25] = {id = 25, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available"},
+    [25] = {id = 25, houseId = 28, owner = "@Zulavi", townId = 1, name = "Malraz's Workshop"},
     [26] = {id = 26, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Forgemaster)"},
 }
 RTP.Portals = {
@@ -53,7 +54,7 @@ RTP.Portals = {
         {location = 1, destination = 15, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
         {location = 1, destination = 16, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
         {location = 1, destination = 6, x = 68205, y = 29222, z = 70409, cx = 0.526152, cy = 0.662144},
-        {location = 1, destination = 22, x = 64049, y = 29226, z = 70606, cx = 0.433965, cy = 0.666558},
+        {location = 1, destination = 22, x = 64051, y = 29226, z = 70608, cx = 0.434129, cy = 0.666558},
     },
     [2] = { --Hofborg: The Spirit Woods
         {location = 2, destination = 6, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
@@ -115,13 +116,13 @@ RTP.Portals = {
     [16] = { --Hofborg: Healer's Cottage
         {location = 16, destination = 1, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
-    [17] = { --Kjell's Cottage
+    [17] = { --Hofborg: Kjell's Cottage
         {location = 17, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
     },
     [18] = { --Hofborg: Available for Rent/Purchase
         {location = 18, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
     },
-    [19] = { --Eiwa's Lodge
+    [19] = { --Hofborg: Eiwa's Lodge
         {location = 19, destination = 6, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [20] = { --Lara new
@@ -129,5 +130,14 @@ RTP.Portals = {
     },
     [21] = { --Skyrim portal to Hofborg
         {location = 21, destination = 5, x = 85201, y = 22049, z = 163631, cx = 0.117692, cy = 0.356798, radius = 400, height = 200},
+    },
+    [22] = { --Hofborg: Murtagh's Place
+        {location = 22, destination = 1, x = 26346, y = 26646, z = 19686, cx = 0.724757, cy = 0.549423},
+    },
+    [23] = { --Hofborg: Mercury & Maps
+        {location = 23, destination = 5, x = 132375, y = 33456, z = 124428, cx = 0.749466, cy = 0.645753},
+    },
+    [25] = { --Hofborg: Malraz's Workshop
+        {location = 25, destination = 5, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
 }

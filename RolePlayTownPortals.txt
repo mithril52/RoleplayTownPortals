@@ -6,6 +6,7 @@
 ## DependsOn: LibCustomMenu LibMapPins-1.0 CustomCompassPins
 ## SavedVariables: SavedVars
 
+LibDialog.lua
 LocationData.lua
 Constants.lua
 Utility.lua

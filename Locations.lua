@@ -107,7 +107,7 @@ function RTP.CreateMapPins()
                     local _, subzone = LibMapPins:GetZoneAndSubzone();
                     if RTP.HouseMaps[RTP.CurrentLocation.houseId].map ~= subzone then return end
 
-                    local destinations = RTP.Locations[portal.destinations]
+                    local destinations = portal.destinations
                     LibMapPins:CreatePin(RTP.CONST.MAP_PIN_TYPE, {portal = portal, destinations = destinations}, portal.cx, portal.cy)
                 end
             end, 
@@ -121,7 +121,6 @@ function RTP.CreateMapPins()
                 creator = function(pin)
                     local _, pinTag = pin:GetPinTypeAndTag()
                     if pinTag.destinations == nil then return end
-
                     
                     if RTP.CurrentLocation.houseId >= 500 then
                         local town = RTP.Towns[pinTag.destinations[1].townId]
@@ -131,8 +130,8 @@ function RTP.CreateMapPins()
                         for _,destinationId in pairs(pinTag.destinations) do
                             local destination = RTP.Locations[destinationId]
                             local line = destination.name
-                            if pinTag.destination.desc ~= nil then
-                                line = line.." - "..pinTag.destination.desc
+                            if destination.desc ~= nil then
+                                line = line.." - "..destination.desc
                             end
                             
                             InformationTooltip:AddLine(line)
@@ -151,7 +150,7 @@ function RTP.CreateMapPins()
                 if tag.destinations == nil then return end
 
                 if GetTableLength(tag.destinations) == 1 then
-                    RTP.UI.JumpToPortalLocationById(tag.destination.id)
+                    RTP.UI.JumpToPortalLocationById(tag.destinations[1].id)
                 else
                     RTP.UI.ShowSelectLocationDialog(tag.destinations)
                 end
@@ -196,7 +195,11 @@ function RTP.CheckPortals()
                 if RTP.ChangedZone then
                     RTP.ChangedZone = false
                 else
-                    RTP.UI.ShowPortalConfirmation(value.destination)
+                    if GetTableLength(value.destinations) == 1 then
+                        RTP.UI.ShowPortalConfirmation(value.destinations[1])
+                    else
+                        RTP.UI.ShowSelectLocationDialog(value.destinations)
+                    end
                 end
             end
             

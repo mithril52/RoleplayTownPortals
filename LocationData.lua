@@ -73,9 +73,9 @@ RTP.Portals = {
     },
     [5] = { --Hofborg: The Docks
         {location = 5, destinations = {1}, x = 76652, y = 14513, z = 99360, cx = 0.618104, cy = 0.550230},
-        {location = 5, destinations = {23}, x = 81657, y = 14319, z = 101067, cx = 0.787284, cy = 0.607930},
+        {location = 5, destinations = {23,25}, x = 81657, y = 14319, z = 101067, cx = 0.787284, cy = 0.607930},
         {location = 5, destinations = {24}, x = 78111, y = 14516, z = 101327, cx = 0.667422, cy = 0.616718},
-        {location = 5, destinations = {25}, x = 78168, y = 14503, z = 94768, cx = 0.669348, cy = 0.395011},
+        {location = 5, destinations = {25,23}, x = 78168, y = 14503, z = 94768, cx = 0.669348, cy = 0.395011},
         {location = 5, destinations = {26}, x = 81556, y = 14509, z = 95241, cx = 0.783870, cy = 0.410999},
     },
     [6] = { --Hofborg: The Village

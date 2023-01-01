@@ -2,6 +2,8 @@ if not RTP then RTP = { } end
 if not RTP.UI then RTP.UI = { } end
 if not RTP.UTIL then RTP.UTIL = { } end
 
+local libDialog = LibDialog
+
 RTP.DefaultVars = {
     IndicatorOffsetX = 0,
     IndicatorOffsetY = 100,
@@ -15,6 +17,7 @@ function RTP.Initialize()
     RTPIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, RTP.SavedVars.IndicatorOffsetX, RTP.SavedVars.IndicatorOffsetY)
 
     RTP.IndicatorMinimizedChanged()
+    RTP.UI.RegisterDialogs()
     
     zo_callLater(function() RTP.WaitForSceneManager() end, 500)
 end
@@ -47,6 +50,7 @@ end
 
 function RTP.OnAddOnLoaded(event, addonName)
     if addonName == RTP.ADDON_NAME then
+        libDialog:OnLibraryLoaded(event, addonName)
         RTP.Initialize()
         EVENT_MANAGER:UnregisterForEvent(RTP.ADDON_NAME, EVENT_ADD_ON_LOADED)
     end

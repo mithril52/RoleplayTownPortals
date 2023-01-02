@@ -127,7 +127,12 @@ function RTP.CreateMapPins()
                         InformationTooltip:AddLine(town.name)
                         InformationTooltip:AddLine("("..pinTag.destination.name..")")
                     else
-                        InformationTooltip:AddLine(pinTag.destination.name)
+                        if pinTag.portal.nameOverride ~= nil then
+                            InformationTooltip:AddLine(pinTag.portal.nameOverride)
+                        else
+                            InformationTooltip:AddLine(pinTag.destination.name)
+                        end
+                        
                         if pinTag.destination.desc ~= nil then
                             InformationTooltip:AddLine(pinTag.destination.desc)
                         end
@@ -185,7 +190,7 @@ function RTP.CheckPortals()
                 if RTP.ChangedZone then
                     RTP.ChangedZone = false
                 else
-                    RTP.UI.ShowPortalConfirmation(value.destination)
+                    RTP.UI.ShowPortalConfirmation(value.destination, value)
                 end
             end
             
@@ -285,11 +290,17 @@ function RTP.UpdateLocationUI()
             RTPIndicatorPopulationLabel:SetText(population.."/"..populationCap)
         end
     end
-end 
+end
 
-function RTP.BuildLocationName(location)
+function RTP.BuildLocationName(location, portal)
     local name = location.name
 
+    if portal ~= nil then
+        if portal.nameOverride ~= nil then
+            name = portal.nameOverride
+        end
+    end
+    
     if location.desc ~= nil then
         name = name.." "..location.desc
     end

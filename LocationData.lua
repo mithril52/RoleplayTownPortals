@@ -2,6 +2,8 @@ if not RTP then RTP = {} end
 
 RTP.HouseMaps = {
     [16] = {id = 16, map = "glenumbra_base"},
+    [17] = {id = 17, map = "rivenspire_base"}, -- Ravenhurst
+    [18] = {id = 18, map = "wayrest_base"}, -- Gardner
     [28] = {id = 28, map = "therift_base"}, -- Autumns Gate
     [29] = {id = 29, map = "windhelm_base"},
     [30] = {id = 30, map = "therift_base"}, --Old Mistveil Manor
@@ -24,7 +26,7 @@ RTP.Locations = {
     [4] = {id = 4, houseId = 47, owner = "@Larawyn", townId = 1, name = "Saebjorn Long Hall", public = true},
     [5] = {id = 5, houseId = 75, owner = "@mithril52", townId = 1, name = "The Docks", public = true},
     [6] = {id = 6, houseId = 71, owner = "@Tart56", townId = 1, name = "The Village", public = true},
-    [8] = {id = 8, houseId = 29, owner = "@Larawyn", townId = 1, name = "Captain's Apartments"},
+    [8] = {id = 8, houseId = 29, owner = "@Larawyn", townId = 1, name = "The Guard House"},
     [9] = {id = 9, houseId = 16, owner = "@rainbowbunny8", townId = 1, name = "Hall Mistress Apartments"},
     [10] = {id = 10, houseId = 71, owner = "@TheGreatHrimbo", townId = 1, name = "Clever Cave"},
     [11] = {id = 11, houseId = 81, owner = "@sinath41", townId = 1, name = "Warrior's Respite", desc = "(Thane's Hall)", public = true},
@@ -40,9 +42,10 @@ RTP.Locations = {
     [21] = {id = 21, houseId = 500, owner = "", townId = 1, name = ""},
     [22] = {id = 22, houseId = 30, owner = "@RavenNoble", townId = 1, name = "Murtagh's Place"},
     [23] = {id = 23, houseId = 63, owner = "@BoneDecipherer", townId = 1, name = "Mercury & Maps", desc = "(Alchemical Shop)"},
-    [24] = {id = 24, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Orcish)"},
+    [24] = {id = 24, houseId = 18, owner = "@Larawyn", townId = 1, name = "The Wharf Rat", desc = "(Tavern)"},
     [25] = {id = 25, houseId = 28, owner = "@Zulavi", townId = 1, name = "Malraz's Workshop"},
     [26] = {id = 26, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Forgemaster)"},
+    [27] = {id = 27, houseId = 17, owner = "@Larawyn", townId = 1, name = "Captain's Quarters"},
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
@@ -55,6 +58,7 @@ RTP.Portals = {
         {location = 1, destination = 16, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
         {location = 1, destination = 6, x = 68205, y = 29222, z = 70409, cx = 0.526152, cy = 0.662144},
         {location = 1, destination = 22, x = 64051, y = 29226, z = 70608, cx = 0.434129, cy = 0.666558},
+        {location = 1, destination = 8, x = 61842, y = 29226, z = 67202, cx = 0.385093, cy = 0.591206},
     },
     [2] = { --Hofborg: The Spirit Woods
         {location = 2, destination = 6, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
@@ -64,12 +68,11 @@ RTP.Portals = {
     },
     [3] = { --Hofborg: The Motherhouse
         {location = 3, destination = 1, x = 50417, y = 39220, z = 94570, cx = 0.277314, cy = 0.799364, radius = 20},
-        {location = 3, destination = 6, x = 52148, y = 17738, z = 87341, cx = 0.300159, cy = 0.703814},
+        {location = 3, destination = 2, x = 52148, y = 17738, z = 87341, cx = 0.300159, cy = 0.703814},
         {location = 3, destination = 20, x = 50010, y = 20449, z = 83083, cx = 0.271752, cy = 0.647199},
     },
     [4] = { --Hofborg: Saebjorn Long Hall
         {location = 4, destination = 1, x = 82991, y = 36927, z = 83368, cx = 0.566294, cy = 0.541505},
-        {location = 4, destination = 8, x = 81960, y = 37256, z = 88112, cx = 0.566004, cy = 0.542143},
         {location = 4, destination = 9, x = 81731, y = 37254, z = 86133, cx = 0.566059, cy = 0.542607},
     },
     [5] = { --Hofborg: The Docks
@@ -88,8 +91,8 @@ RTP.Portals = {
         {location = 6, destination = 18, x = 70553, y = 28975, z = 66568, cx = 0.578130, cy = 0.577149},
         {location = 6, destination = 19, x = 71354, y = 28975, z = 61026, cx = 0.595783, cy = 0.454397},
     },
-    [8] = { --Hofborg: Thorrstad Apartments
-        {location = 8, destination = 4, x = 26343, y = 20019, z = 25502, cx = 0.717911, cy = 0.364741},
+    [8] = { --Hofborg: Guard House
+        {location = 8, destination = 1, x = 26343, y = 20019, z = 25502, cx = 0.717911, cy = 0.364741},
     },
     [9] = { --Hofborg: Hall Mistress Apartments
         {location = 9, destination = 4, x = 19650, y = 20026, z = 29035, cx = 0.312595, cy = 0.789945},
@@ -111,7 +114,7 @@ RTP.Portals = {
     },
     [15] = { --Hofborg: Kyne's Keg, (Inn)
         {location = 15, destination = 1, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
-        {location = 15, destination = 6, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665},
+        {location = 15, destination = 24, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665, nameOverride = "Back Alley to The Wharf Rat"},
     },
     [16] = { --Hofborg: Healer's Cottage
         {location = 16, destination = 1, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
@@ -137,7 +140,18 @@ RTP.Portals = {
     [23] = { --Hofborg: Mercury & Maps
         {location = 23, destination = 5, x = 132375, y = 33456, z = 124428, cx = 0.749466, cy = 0.645753},
     },
+    [24] = { --Hofborg: The Wharf Rat
+        {location = 24, destination = 5, x = 66592, y = 7603, z = 74518, cx = 0.642293, cy = 0.206978},
+        {location = 24, destination = 27, x = 68160, y = 7604, z = 73100, cx = 0.664907, cy = 0.186526, radius = 120},
+        {location = 24, destination = 15, x = 64789, y = 7604, z = 73233, cx = 0.616289, cy = 0.188445, radius = 120, nameOverride = "Back Alley to Kyne's Keg"},
+    },
     [25] = { --Hofborg: Malraz's Workshop
         {location = 25, destination = 5, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+    },
+    [26] = { --Hofborg: Property Available
+        {location = 26, destination = 5, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+    },
+    [27] = { --Hofborg: Captain's Quarters
+        {location = 27, destination = 24, x = 58055, y = 9701, z = 31194, cx = 0.697752, cy = 0.419204},
     },
 }

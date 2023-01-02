@@ -78,12 +78,12 @@ function RTP.UI.GeneratePortalText()
 end
 
 -- Dialogs
-function RTP.UI.ShowPortalConfirmation(destinationId)
+function RTP.UI.ShowPortalConfirmation(destinationId, portal)
     local destination = RTP.Locations[destinationId]
     local town = RTP.Towns[destination.townId]
-    
+
     RTP.UI.ShowConfirmationDialog("Role-Play Town Portals", 
-            "|cffffffThis is a portal to |c00ffff"..RTP.BuildLocationName(destination).." in |c00ffff"..town.name.."|cffffff. Would you like to take the portal there now? ", 
+            "|cffffffThis is a portal to |c00ffff"..RTP.BuildLocationName(destination, portal).." in |c00ffff"..town.name.."|cffffff. Would you like to take the portal there now? ", 
             function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
 end
 

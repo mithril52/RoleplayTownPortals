@@ -1,7 +1,7 @@
 ## Title: Role-Play Town Portals
 ## Author: Baene (@mithril52)
 ## APIVersion: 101035
-## AddOnVersion: 1.8
+## AddOnVersion: 1.13
 ## IsLibrary: False
 ## DependsOn: LibCustomMenu LibMapPins-1.0 CustomCompassPins
 ## SavedVariables: SavedVars

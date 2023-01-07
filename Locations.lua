@@ -72,7 +72,7 @@ function RTP.CreateCompassPins()
                 for _, portal in pairs(RTP.Portals[RTP.CurrentLocation.id]) do
                     if portal.cx == nil then return end
                     
-                    local name = RTP.Locations[portal.destination].name
+                    local name = RTP.Locations[portal.destinations[1]].name
                     pinManager:CreatePin(RTP.CONST.COMPASS_PIN_TYPE, portal, portal.cx, portal.cy, name)
                 end
             end,
@@ -106,8 +106,9 @@ function RTP.CreateMapPins()
                     
                     local _, subzone = LibMapPins:GetZoneAndSubzone();
                     if RTP.HouseMaps[RTP.CurrentLocation.houseId].map ~= subzone then return end
-                    local destination = RTP.Locations[portal.destination]
-                    LibMapPins:CreatePin(RTP.CONST.MAP_PIN_TYPE, {portal = portal, destination = destination}, portal.cx, portal.cy)
+
+                    local destinations = portal.destinations
+                    LibMapPins:CreatePin(RTP.CONST.MAP_PIN_TYPE, {portal = portal, destinations = destinations}, portal.cx, portal.cy)
                 end
             end, 
             nil,
@@ -119,22 +120,26 @@ function RTP.CreateMapPins()
             {
                 creator = function(pin)
                     local _, pinTag = pin:GetPinTypeAndTag()
-                    if pinTag.destination == nil then return end
-
+                    if pinTag.destinations == nil then return end
                     
                     if RTP.CurrentLocation.houseId >= 500 then
-                        local town = RTP.Towns[pinTag.destination.townId]
-                        InformationTooltip:AddLine(town.name)
-                        InformationTooltip:AddLine("("..pinTag.destination.name..")")
-                    else
-                        if pinTag.portal.nameOverride ~= nil then
-                            InformationTooltip:AddLine(pinTag.portal.nameOverride)
-                        else
-                            InformationTooltip:AddLine(pinTag.destination.name)
-                        end
+                        local destination = RTP.Locations[pinTag.destinations[1]]
+                        local town = RTP.Towns[destination.townId]
                         
-                        if pinTag.destination.desc ~= nil then
-                            InformationTooltip:AddLine(pinTag.destination.desc)
+                        InformationTooltip:AddLine(town.name)
+                        InformationTooltip:AddLine("("..destination.name..")")
+                    else
+                        for _,destinationId in pairs(pinTag.destinations) do
+                            local destination = RTP.Locations[destinationId]
+                            if pinTag.portal.nameOverride ~= nil then
+                                InformationTooltip:AddLine(pinTag.portal.nameOverride)
+                            else
+                                InformationTooltip:AddLine(destination.name)
+                            end
+
+                            if destination.desc ~= nil then
+                                InformationTooltip:AddLine(destination.desc)
+                            end 
                         end
                     end
                 end,
@@ -146,9 +151,13 @@ function RTP.CreateMapPins()
         {
             callback    = function(pin) 
                 local _,tag = pin:GetPinTypeAndTag()
-                if tag.destination == nil then return end
+                if tag.destinations == nil then return end
 
-                RTP.UI.JumpToPortalLocationById(tag.destination.id)
+                if GetTableLength(tag.destinations) == 1 then
+                    RTP.UI.JumpToPortalLocationById(tag.destinations[1].id)
+                else
+                    RTP.UI.ShowSelectLocationDialog(tag.destinations)
+                end
             end,
         },
     })
@@ -190,7 +199,11 @@ function RTP.CheckPortals()
                 if RTP.ChangedZone then
                     RTP.ChangedZone = false
                 else
-                    RTP.UI.ShowPortalConfirmation(value.destination, value)
+                    if GetTableLength(value.destinations) == 1 then
+                        RTP.UI.ShowPortalConfirmation(value.destinations[1], value)
+                    else
+                        RTP.UI.ShowSelectLocationDialog(value.destinations)
+                    end
                 end
             end
             

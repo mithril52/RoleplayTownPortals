@@ -5,6 +5,8 @@ if not RTP.UTIL then RTP.UTIL = { } end
 
 RTP.UI.IndicatorTooltip = "Role-Play Town Portals"
 
+local libDialog = LibDialog
+
 -- XML User Interface handling code
 function RTP.UI.OnIndicatorButtonMouseEnter()
     ZO_Tooltips_ShowTextTooltip(RTPIndicatorButton, BOTTOMRIGHT, RTP.UI.IndicatorTooltip)
@@ -31,7 +33,9 @@ function RTP.UI.ShowIndicatorContextMenu()
 
                 publicLocations[index] = {
                     label = locationName,
-                    callback = function() RTP.UI.JumpToPortalLocationById(location.id) end
+                    callback = function() 
+                        RTP.UI.JumpToPortalLocationById(location.id)
+                    end
                 }
                 
                 index = index + 1
@@ -48,7 +52,7 @@ function RTP.UI.ShowIndicatorContextMenu()
             end,
             MENU_ADD_OPTION_CHECKBOX
     )
-    
+
     if RTP.SavedVars.IndicatorMinimized then
         ZO_CheckButton_SetChecked(ZO_Menu.items[minimizedIndex].checkbox)
     else
@@ -74,7 +78,7 @@ function RTP.UI.GeneratePortalText()
     
     d(string.format("Map: [%i] = {id = %i, map = \"%s\"},", houseId, houseId, map))
     d(string.format("Location: {id = %i, houseId = %i, owner = \"%s\", townId = 1, name = \"Name goes here\"},", locationId, houseId, owner))
-    d(string.format("Portal: {location = %i, destination = ##, x = %i, y = %i, z = %i, cx = %f, cy = %f},", locationId, x, y, z, normalizedX, normalizedZ))
+    d(string.format("Portal: {location = %i, destinations = {##}, x = %i, y = %i, z = %i, cx = %f, cy = %f},", locationId, x, y, z, normalizedX, normalizedZ))
 end
 
 -- Dialogs
@@ -85,6 +89,29 @@ function RTP.UI.ShowPortalConfirmation(destinationId, portal)
     RTP.UI.ShowConfirmationDialog("Role-Play Town Portals", 
             "|cffffffThis is a portal to |c00ffff"..RTP.BuildLocationName(destination, portal).." in |c00ffff"..town.name.."|cffffff. Would you like to take the portal there now? ", 
             function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
+end
+
+function RTP.UI.ShowSelectLocationDialog(destinations)
+    RTP.UI.DestinationSelection = destinations[1]
+    
+    local radioButtons = {}
+    local index = 1
+    
+    for destinationId in pairs(destinations) do
+        local destination = RTP.Locations[destinationId]
+        
+        radioButtons[index] = {}
+        radioButtons[index].text = "|c00ffff"..destination.name
+        radioButtons[index].clickedCallback = function() 
+            ZO_Dialogs_ReleaseAllDialogs()
+            RTP.UI.JumpToPortalLocationById(destinationId)
+        end
+        
+        index = index + 1;
+    end
+    
+    libDialog:AddRadioButtons(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, radioButtons)
+    libDialog:ShowDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, nil)
 end
 
 function RTP.UI.JumpToPortalLocationById(locationId)
@@ -142,3 +169,10 @@ function RTP.UI.ShowConfirmationDialog( title, body, confirmCallback, cancelCall
 
     ZO_Dialogs_ShowDialog( RTP.CONST.DIALOG_CONFIRM )
 end
+
+function RTP.UI.RegisterDialogs()
+    libDialog:RegisterDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, "Select Portal Destination",
+            "This portal leads to multiple destinations. Please click the destination you want below and you will travel there",
+            nil, nil, nil, true, {}, {}
+    )
+end 

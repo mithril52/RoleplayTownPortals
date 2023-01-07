@@ -123,28 +123,24 @@ function RTP.CreateMapPins()
                     if pinTag.destinations == nil then return end
                     
                     if RTP.CurrentLocation.houseId >= 500 then
-                        local town = RTP.Towns[pinTag.destinations[1].townId]
+                        local destination = RTP.Locations[pinTag.destinations[1]]
+                        local town = RTP.Towns[destination.townId]
+                        
                         InformationTooltip:AddLine(town.name)
-                        InformationTooltip:AddLine("("..pinTag.destinations[1].name..")")
+                        InformationTooltip:AddLine("("..destination.name..")")
                     else
                         for _,destinationId in pairs(pinTag.destinations) do
                             local destination = RTP.Locations[destinationId]
-                            local line = destination.name
-                            if destination.desc ~= nil then
-                                line = line.." - "..destination.desc
+                            if pinTag.portal.nameOverride ~= nil then
+                                InformationTooltip:AddLine(pinTag.portal.nameOverride)
+                            else
+                                InformationTooltip:AddLine(destination.name)
                             end
-                            
-                            InformationTooltip:AddLine(line)
-                        if pinTag.portal.nameOverride ~= nil then
-                            InformationTooltip:AddLine(pinTag.portal.nameOverride)
-                        else
-                            InformationTooltip:AddLine(pinTag.destination.name)
+
+                            if destination.desc ~= nil then
+                                InformationTooltip:AddLine(destination.desc)
+                            end 
                         end
-                        
-                        if pinTag.destination.desc ~= nil then
-                            InformationTooltip:AddLine(pinTag.destination.desc)
-                        end
-                        
                     end
                 end,
                 tooltip = ZO_MAP_TOOLTIP_MODE.INFORMATION,

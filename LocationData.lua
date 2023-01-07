@@ -49,16 +49,16 @@ RTP.Locations = {
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
-        {location = 1, destination = 2, x = 59173, y = 29521, z = 54668, cx = 0.325924, cy = 0.313501},
-        {location = 1, destination = 3, x = 66138, y = 29242, z = 59534, cx = 0.480059, cy = 0.421380},
-        {location = 1, destination = 4, x = 61236, y = 29454, z = 63784, cx = 0.371854, cy = 0.515201},
-        {location = 1, destination = 5, x = 67927, y = 29226, z = 71469, cx = 0.519941, cy = 0.685682},
-        {location = 1, destination = 14, x = 66110, y = 29300, z = 71976, cx = 0.479732, cy = 0.696960},
-        {location = 1, destination = 15, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
-        {location = 1, destination = 16, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
-        {location = 1, destination = 6, x = 68205, y = 29222, z = 70409, cx = 0.526152, cy = 0.662144},
-        {location = 1, destination = 22, x = 64051, y = 29226, z = 70608, cx = 0.434129, cy = 0.666558},
-        {location = 1, destination = 8, x = 61842, y = 29226, z = 67202, cx = 0.385093, cy = 0.591206},
+        {location = 1, destinations = {2}, x = 59173, y = 29521, z = 54668, cx = 0.325924, cy = 0.313501},
+        {location = 1, destinations = {3}, x = 66138, y = 29242, z = 59534, cx = 0.480059, cy = 0.421380},
+        {location = 1, destinations = {4}, x = 61236, y = 29454, z = 63784, cx = 0.371854, cy = 0.515201},
+        {location = 1, destinations = {5}, x = 67927, y = 29226, z = 71469, cx = 0.519941, cy = 0.685682},
+        {location = 1, destinations = {14}, x = 66110, y = 29300, z = 71976, cx = 0.479732, cy = 0.696960},
+        {location = 1, destinations = {15}, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
+        {location = 1, destinations = {16}, x = 63299, y = 29226, z = 69822, cx = 0.417457, cy = 0.649232},
+        {location = 1, destinations = {6}, x = 68205, y = 29222, z = 70409, cx = 0.526152, cy = 0.662144},
+        {location = 1, destinations = {22}, x = 64051, y = 29226, z = 70608, cx = 0.434129, cy = 0.666558},
+        {location = 1, destinations = {8}, x = 61842, y = 29226, z = 67202, cx = 0.385093, cy = 0.591206},
     },
     [2] = { --Hofborg: The Spirit Woods
         {location = 2, destinations = {6}, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
@@ -67,19 +67,19 @@ RTP.Portals = {
         {location = 2, destinations = {11}, x = 64907, y = 29226, z = 73029, cx = 0.453089, cy = 0.720170},
     },
     [3] = { --Hofborg: The Motherhouse
-        {location = 3, destination = 1, x = 50417, y = 39220, z = 94570, cx = 0.277314, cy = 0.799364, radius = 20},
-        {location = 3, destination = 2, x = 52148, y = 17738, z = 87341, cx = 0.300159, cy = 0.703814},
-        {location = 3, destination = 20, x = 50010, y = 20449, z = 83083, cx = 0.271752, cy = 0.647199},
+        {location = 3, destinations = {1}, x = 50417, y = 39220, z = 94570, cx = 0.277314, cy = 0.799364, radius = 20},
+        {location = 3, destinations = {2}, x = 52148, y = 17738, z = 87341, cx = 0.300159, cy = 0.703814},
+        {location = 3, destinations = {20}, x = 50010, y = 20449, z = 83083, cx = 0.271752, cy = 0.647199},
     },
     [4] = { --Hofborg: Saebjorn Long Hall
-        {location = 4, destination = 1, x = 82991, y = 36927, z = 83368, cx = 0.566294, cy = 0.541505},
-        {location = 4, destination = 9, x = 81731, y = 37254, z = 86133, cx = 0.566059, cy = 0.542607},
+        {location = 4, destinations = {1}, x = 82991, y = 36927, z = 83368, cx = 0.566294, cy = 0.541505},
+        {location = 4, destinations = {9}, x = 81731, y = 37254, z = 86133, cx = 0.566059, cy = 0.542607},
     },
     [5] = { --Hofborg: The Docks
         {location = 5, destinations = {1}, x = 76652, y = 14513, z = 99360, cx = 0.618104, cy = 0.550230},
-        {location = 5, destinations = {23,25}, x = 81657, y = 14319, z = 101067, cx = 0.787284, cy = 0.607930},
+        {location = 5, destinations = {23}, x = 81657, y = 14319, z = 101067, cx = 0.787284, cy = 0.607930},
         {location = 5, destinations = {24}, x = 78111, y = 14516, z = 101327, cx = 0.667422, cy = 0.616718},
-        {location = 5, destinations = {25,23}, x = 78168, y = 14503, z = 94768, cx = 0.669348, cy = 0.395011},
+        {location = 5, destinations = {25}, x = 78168, y = 14503, z = 94768, cx = 0.669348, cy = 0.395011},
         {location = 5, destinations = {26}, x = 81556, y = 14509, z = 95241, cx = 0.783870, cy = 0.410999},
     },
     [6] = { --Hofborg: The Village
@@ -92,7 +92,7 @@ RTP.Portals = {
         {location = 6, destinations = {19}, x = 71354, y = 28975, z = 61026, cx = 0.595783, cy = 0.454397},
     },
     [8] = { --Hofborg: Guard House
-        {location = 8, destination = 1, x = 26343, y = 20019, z = 25502, cx = 0.717911, cy = 0.364741},
+        {location = 8, destinations = {1}, x = 26343, y = 20019, z = 25502, cx = 0.717911, cy = 0.364741},
     },
     [9] = { --Hofborg: Hall Mistress Apartments
         {location = 9, destinations = {4}, x = 19650, y = 20026, z = 29035, cx = 0.312595, cy = 0.789945},
@@ -113,20 +113,20 @@ RTP.Portals = {
         {location = 14, destinations = {1}, x = 26332, y = 20019, z = 25491, cx = 0.717911, cy = 0.364741},
     },
     [15] = { --Hofborg: Kyne's Keg, (Inn)
-        {location = 15, destination = 1, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
-        {location = 15, destination = 24, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665, nameOverride = "Back Alley to The Wharf Rat"},
+        {location = 15, destinations = {1}, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
+        {location = 15, destinations = {24}, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665, nameOverride = "Back Alley to The Wharf Rat"},
     },
     [16] = { --Hofborg: Healer's Cottage
         {location = 16, destinations = {1}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [17] = { --Hofborg: Kjell's Cottage
-        {location = 17, destination = 6, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
+        {location = 17, destinations = {6}, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
     },
     [18] = { --Hofborg: Available for Rent/Purchase
         {location = 18, destinations = {6}, x = 36867, y = 26454, z = 39036, cx = 0.250910, cy = 0.347660},
     },
     [19] = { --Hofborg: Eiwa's Lodge
-        {location = 19, destination = 6, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+        {location = 19, destinations = {6}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [20] = { --Lara new
         {location = 20, destinations = {3}, x = 19650, y = 20026, z = 29035, cx = 0.312595, cy = 0.789945},
@@ -135,23 +135,23 @@ RTP.Portals = {
         {location = 21, destinations = {5}, x = 85201, y = 22049, z = 163631, cx = 0.117692, cy = 0.356798, radius = 400, height = 200},
     },
     [22] = { --Hofborg: Murtagh's Place
-        {location = 22, destination = 1, x = 26346, y = 26646, z = 19686, cx = 0.724757, cy = 0.549423},
+        {location = 22, destinations = {1}, x = 26346, y = 26646, z = 19686, cx = 0.724757, cy = 0.549423},
     },
     [23] = { --Hofborg: Mercury & Maps
-        {location = 23, destination = 5, x = 132375, y = 33456, z = 124428, cx = 0.749466, cy = 0.645753},
+        {location = 23, destinations = {5}, x = 132375, y = 33456, z = 124428, cx = 0.749466, cy = 0.645753},
     },
     [24] = { --Hofborg: The Wharf Rat
-        {location = 24, destination = 5, x = 66592, y = 7603, z = 74518, cx = 0.642293, cy = 0.206978},
-        {location = 24, destination = 27, x = 68160, y = 7604, z = 73100, cx = 0.664907, cy = 0.186526, radius = 120},
-        {location = 24, destination = 15, x = 64789, y = 7604, z = 73233, cx = 0.616289, cy = 0.188445, radius = 120, nameOverride = "Back Alley to Kyne's Keg"},
+        {location = 24, destinations = {5}, x = 66592, y = 7603, z = 74518, cx = 0.642293, cy = 0.206978},
+        {location = 24, destinations = {27}, x = 68160, y = 7604, z = 73100, cx = 0.664907, cy = 0.186526, radius = 120},
+        {location = 24, destinations = {15}, x = 64789, y = 7604, z = 73233, cx = 0.616289, cy = 0.188445, radius = 120, nameOverride = "Back Alley to Kyne's Keg"},
     },
     [25] = { --Hofborg: Malraz's Workshop
-        {location = 25, destination = 5, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+        {location = 25, destinations = {5}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [26] = { --Hofborg: Property Available
-        {location = 26, destination = 5, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+        {location = 26, destinations = {5}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [27] = { --Hofborg: Captain's Quarters
-        {location = 27, destination = 24, x = 58055, y = 9701, z = 31194, cx = 0.697752, cy = 0.419204},
+        {location = 27, destinations = {24}, x = 58055, y = 9701, z = 31194, cx = 0.697752, cy = 0.419204},
     },
 }

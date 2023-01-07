@@ -53,12 +53,6 @@ function RTP.UI.ShowIndicatorContextMenu()
             MENU_ADD_OPTION_CHECKBOX
     )
 
-    AddCustomMenuItem("Test Multi-destination",
-            function()
-                RTP.UI.ShowSelectLocationDialog({23,25})
-            end
-    )
-
     if RTP.SavedVars.IndicatorMinimized then
         ZO_CheckButton_SetChecked(ZO_Menu.items[minimizedIndex].checkbox)
     else
@@ -97,25 +91,8 @@ function RTP.UI.ShowPortalConfirmation(destinationId, portal)
             function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
 end
 
-RTP.UI.DestinationSelection = 1
-
 function RTP.UI.ShowSelectLocationDialog(destinations)
     RTP.UI.DestinationSelection = destinations[1]
-    
-    local callbackYes = function()
-        d("Yes clicked")
-        --RTP.UI.JumpToPortalLocationById(RTP.UI.DestinationSelection)
-    end
-
-    libDialog:RegisterDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, "Select Portal Destination",
-            "This portal leads to multiple destinations. Please select the destination you want below",
-            callbackYes,
-            function(dialog)
-                d("No clicked")
-                --RTP.UI.JumpToPortalLocationById(RTP.UI.DestinationSelection)
-            end,
-            nil, true, {}, {}
-    )
     
     local radioButtons = {}
     local index = 1
@@ -124,19 +101,16 @@ function RTP.UI.ShowSelectLocationDialog(destinations)
         local destination = RTP.Locations[destinationId]
         
         radioButtons[index] = {}
-        radioButtons[index].text = destination.name
+        radioButtons[index].text = "|c00ffff"..destination.name
         radioButtons[index].clickedCallback = function() 
-            d("Radio clicked")
             ZO_Dialogs_ReleaseAllDialogs()
-            RTP.UI.DestinationSelection = destinationId 
+            RTP.UI.JumpToPortalLocationById(destinationId)
         end
         
         index = index + 1;
     end
     
     libDialog:AddRadioButtons(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, radioButtons)
-    --libDialog:AddRadioButtons(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, nil,
-    --    "Radio 1", {}, function() d("Radio clicked") end)
     libDialog:ShowDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, nil)
 end
 
@@ -197,5 +171,8 @@ function RTP.UI.ShowConfirmationDialog( title, body, confirmCallback, cancelCall
 end
 
 function RTP.UI.RegisterDialogs()
-    
+    libDialog:RegisterDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, "Select Portal Destination",
+            "This portal leads to multiple destinations. Please click the destination you want below and you will travel there",
+            nil, nil, nil, true, {}, {}
+    )
 end 

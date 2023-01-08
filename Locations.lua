@@ -72,8 +72,12 @@ function RTP.CreateCompassPins()
                 for _, portal in pairs(RTP.Portals[RTP.CurrentLocation.id]) do
                     if portal.cx == nil then return end
                     
-                    local name = RTP.Locations[portal.destinations[1]].name
-                    pinManager:CreatePin(RTP.CONST.COMPASS_PIN_TYPE, portal, portal.cx, portal.cy, name)
+                    if portal.nameOverride ~= nil then
+                        pinManager:CreatePin(RTP.CONST.COMPASS_PIN_TYPE, portal, portal.cx, portal.cy, portal.nameOverride)
+                    else
+                        local name = RTP.Locations[portal.destinations[1]].name
+                        pinManager:CreatePin(RTP.CONST.COMPASS_PIN_TYPE, portal, portal.cx, portal.cy, name)
+                    end
                 end
             end,
             { 
@@ -129,17 +133,17 @@ function RTP.CreateMapPins()
                         InformationTooltip:AddLine(town.name)
                         InformationTooltip:AddLine("("..destination.name..")")
                     else
+                        if pinTag.portal.nameOverride ~= nil then
+                            InformationTooltip:AddLine("|c00ffff"..pinTag.portal.nameOverride)
+                        end
+                        
                         for _,destinationId in pairs(pinTag.destinations) do
                             local destination = RTP.Locations[destinationId]
-                            if pinTag.portal.nameOverride ~= nil then
-                                InformationTooltip:AddLine(pinTag.portal.nameOverride)
+                            if destination.desc ~= nil then
+                                InformationTooltip:AddLine(destination.name.." - "..destination.desc)
                             else
                                 InformationTooltip:AddLine(destination.name)
                             end
-
-                            if destination.desc ~= nil then
-                                InformationTooltip:AddLine(destination.desc)
-                            end 
                         end
                     end
                 end,
@@ -151,12 +155,13 @@ function RTP.CreateMapPins()
         {
             callback    = function(pin) 
                 local _,tag = pin:GetPinTypeAndTag()
-                if tag.destinations == nil then return end
+                d(tag)
+                if tag.destinations == nil or GetTableLength(tag.destinations) == 0 then return end
 
                 if GetTableLength(tag.destinations) == 1 then
-                    RTP.UI.JumpToPortalLocationById(tag.destinations[1].id)
+                    RTP.UI.JumpToPortalLocationById(tag.destinations[1])
                 else
-                    RTP.UI.ShowSelectLocationDialog(tag.destinations)
+                    RTP.UI.ShowSelectLocationDialog(tag.portal)
                 end
             end,
         },
@@ -199,10 +204,10 @@ function RTP.CheckPortals()
                 if RTP.ChangedZone then
                     RTP.ChangedZone = false
                 else
-                    if GetTableLength(value.destinations) == 1 then
+                    if GetTableLength(value.destinations) == 1 and value.showMulti == nil then
                         RTP.UI.ShowPortalConfirmation(value.destinations[1], value)
                     else
-                        RTP.UI.ShowSelectLocationDialog(value.destinations)
+                        RTP.UI.ShowSelectLocationDialog(value)
                     end
                 end
             end

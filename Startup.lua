@@ -17,7 +17,6 @@ function RTP.Initialize()
     RTPIndicator:SetAnchor(TOPLEFT, GuiRoot, TOPLEFT, RTP.SavedVars.IndicatorOffsetX, RTP.SavedVars.IndicatorOffsetY)
 
     RTP.IndicatorMinimizedChanged()
-    RTP.UI.RegisterDialogs()
     
     zo_callLater(function() RTP.WaitForSceneManager() end, 500)
 end

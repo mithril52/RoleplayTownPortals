@@ -91,27 +91,36 @@ function RTP.UI.ShowPortalConfirmation(destinationId, portal)
             function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
 end
 
-function RTP.UI.ShowSelectLocationDialog(destinations)
-    RTP.UI.DestinationSelection = destinations[1]
-    
+function RTP.UI.ShowSelectLocationDialog(portal)
     local radioButtons = {}
     local index = 1
-    
-    for destinationId in pairs(destinations) do
+    local name = portal.nameOverride
+    local dialogName = RTP.CONST.DIALOG_SELECT_DESTINATION.."-"..portal.location.."-"..portal.id
+
+    for key, destinationId in pairs(portal.destinations) do
         local destination = RTP.Locations[destinationId]
         
         radioButtons[index] = {}
         radioButtons[index].text = "|c00ffff"..destination.name
-        radioButtons[index].clickedCallback = function() 
+        radioButtons[index].clickedCallback = function()
             ZO_Dialogs_ReleaseAllDialogs()
-            RTP.UI.JumpToPortalLocationById(destinationId)
+            RTP.UI.JumpToPortalLocationById(destination.id)
         end
         
         index = index + 1;
     end
     
-    libDialog:AddRadioButtons(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, radioButtons)
-    libDialog:ShowDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, nil)
+    if name == nil then 
+        name = "Select Portal Destination"
+    end
+    
+    libDialog:RegisterDialog(RTP.ADDON_NAME, dialogName, name, portal.portalDescription, nil, nil, nil, true, {}, {})
+    
+    if GetTableLength(portal.destinations) > 0 then
+        libDialog:AddRadioButtons(RTP.ADDON_NAME, dialogName, radioButtons)
+    end
+    
+    libDialog:ShowDialog(RTP.ADDON_NAME, dialogName, nil)
 end
 
 function RTP.UI.JumpToPortalLocationById(locationId)
@@ -170,9 +179,5 @@ function RTP.UI.ShowConfirmationDialog( title, body, confirmCallback, cancelCall
     ZO_Dialogs_ShowDialog( RTP.CONST.DIALOG_CONFIRM )
 end
 
-function RTP.UI.RegisterDialogs()
-    libDialog:RegisterDialog(RTP.ADDON_NAME, RTP.CONST.DIALOG_SELECT_DESTINATION, "Select Portal Destination",
-            "This portal leads to multiple destinations. Please click the destination you want below and you will travel there",
-            nil, nil, nil, true, {}, {}
-    )
-end 
+function RTP.UI.ShowSelectDestinationDialog(portalDescription)
+end

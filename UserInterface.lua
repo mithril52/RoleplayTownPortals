@@ -5,7 +5,13 @@ if not RTP.UTIL then RTP.UTIL = { } end
 
 RTP.UI.IndicatorTooltip = "Role-Play Town Portals"
 
-local libDialog = LibDialog
+local libScroll = LibScroll
+local selectDestinationScrollList
+
+local SelectDestinationSceneState = SCENE_HIDDEN
+local TravelConfirmationSceneState = SCENE_HIDDEN
+
+local SelectedDestinationId = 0
 
 -- XML User Interface handling code
 function RTP.UI.OnIndicatorButtonMouseEnter()
@@ -82,50 +88,81 @@ function RTP.UI.GeneratePortalText()
 end
 
 -- Dialogs
-function RTP.UI.ShowPortalConfirmation(destinationId, portal)
-    local destination = RTP.Locations[destinationId]
+function RTP.UI.ShowTravelConfirmation(portal)
+    local body = RTPTravelConfirmationDialog:GetNamedChild("BodyContainer"):GetNamedChild("Body")
+    local destination = RTP.Locations[portal.destinations[1]]
     local town = RTP.Towns[destination.townId]
+    local title = RTPTravelConfirmationDialog:GetNamedChild("Title")
 
-    RTP.UI.ShowConfirmationDialog("Role-Play Town Portals", 
-            "|cffffffThis is a portal to |c00ffff"..RTP.BuildLocationName(destination, portal).." in |c00ffff"..town.name.."|cffffff. Would you like to take the portal there now? ", 
-            function() RTP.UI.JumpToPortalLocation(destination.owner, destination.houseId)  end)
+    SelectedDestinationId = destination.id
+    
+    body:SetText("|cffffffThis is a portal to |c00ffff"..RTP.BuildLocationName(destination, portal).." in |c00ffff"..town.name.."|cffffff. Would you like to travel there now? ")
+
+    if portal.nameOverride ~= nil then
+        title:SetText(portal.nameOverride)
+    else
+        title:SetText(destination.name)
+    end
+    
+    SCENE_MANAGER:Toggle("RTPTravelConfirmation")
+end
+
+local travelKeybindDesc = {
+        name = "Travel Now",
+        keybind = "UI_SHORTCUT_PRIMARY",
+        callback = function()
+            SCENE_MANAGER:Toggle("RTPTravelConfirmation")
+            RTP.UI.JumpToPortalLocationById(SelectedDestinationId) 
+        end,
+        alignment = KEYBIND_STRIP_ALIGN_CENTER,
+}
+
+local function SetupDestinationRow(rowControl, data, scrollList)
+    rowControl:SetText(data.name)
+    rowControl:SetFont("ZoFontWinH6")
+    rowControl:SetHandler("OnMouseUp", function() 
+        ZO_ScrollList_MouseClick(scrollList, rowControl)
+    end)
+end
+
+local function OnDestinationSelected(previouslySelectedData, selectedData, reselectingDuringRebuild)
+    if not selectedData then return end
+    if SelectDestinationSceneState == SCENE_SHOWN then
+        SCENE_MANAGER:Toggle("RTPSelectDestination")
+    end
+    RTP.UI.JumpToPortalLocationById(selectedData.id)
 end
 
 function RTP.UI.ShowSelectLocationDialog(portal)
-    local radioButtons = {}
-    local index = 1
-    local name = portal.nameOverride
-    local dialogName = RTP.CONST.DIALOG_SELECT_DESTINATION.."-"..portal.location.."-"..portal.id
+    local body = RTPSelectDestinationDialog:GetNamedChild("BodyContainer"):GetNamedChild("Body")
+    local title = RTPSelectDestinationDialog:GetNamedChild("Title")
 
-    for key, destinationId in pairs(portal.destinations) do
-        local destination = RTP.Locations[destinationId]
+    body:SetText(portal.portalDescription)
+    title:SetText(portal.nameOverride)
+    
+    selectDestinationScrollList:Clear()
+    
+    if portal.destinations ~= nil and GetTableLength(portal.destinations) > 0 then
+        local destinations = {}
+        local index = 1
         
-        radioButtons[index] = {}
-        radioButtons[index].text = "|c00ffff"..destination.name
-        radioButtons[index].clickedCallback = function()
-            ZO_Dialogs_ReleaseAllDialogs()
-            RTP.UI.JumpToPortalLocationById(destination.id)
+        for _, v in pairs(portal.destinations) do
+            local location = RTP.Locations[v]
+            
+            destinations[index] = { name = location.name, id = v }
+            index = index + 1
         end
-        
-        index = index + 1;
+
+        selectDestinationScrollList:Update(destinations)
     end
     
-    if name == nil then 
-        name = "Select Portal Destination"
-    end
-    
-    libDialog:RegisterDialog(RTP.ADDON_NAME, dialogName, name, portal.portalDescription, nil, nil, nil, true, {}, {})
-    
-    if GetTableLength(portal.destinations) > 0 then
-        libDialog:AddRadioButtons(RTP.ADDON_NAME, dialogName, radioButtons)
-    end
-    
-    libDialog:ShowDialog(RTP.ADDON_NAME, dialogName, nil)
+    SCENE_MANAGER:Toggle("RTPSelectDestination")
 end
 
 function RTP.UI.JumpToPortalLocationById(locationId)
     local location = RTP.Locations[locationId]
 
+    d("Travelling to "..location.name.."...")
     RTP.UI.JumpToPortalLocation(location.owner, location.houseId)
 end
 
@@ -137,47 +174,53 @@ function RTP.UI.JumpToPortalLocation(owner, houseId)
     end
 end
 
-function RTP.UI.InitializeConfirmationDialog()
-    if not ESO_Dialogs[ RTP.CONST.DIALOG_CONFIRM ] then
-        ESO_Dialogs[ RTP.CONST.DIALOG_CONFIRM ] = {
-            canQueue = true,
-            title = { text = "" },
-            mainText = { text = "" },
-            buttons = {
-                [1] = {
-                    text = SI_DIALOG_CONFIRM,
-                    callback = function() end,
-                },
-                [2] = {
-                    text = SI_DIALOG_CANCEL,
-                    callback = function() end,
-                }
-            }
-        }
-    end
-
-    return ESO_Dialogs[ RTP.CONST.DIALOG_CONFIRM ]
+local function AddDivider(name, parent)
+    local divider = WINDOW_MANAGER:CreateControl(name, parent, CT_TEXTURE)
+    divider:SetDimensions(350, 10)
+    divider:SetAnchor(TOPLEFT, parent, TOP_LEFT, 5, 55)
+    divider:SetTexture("/esoui/art/miscellaneous/wide_divider_left.dds")
 end
 
-function RTP.UI.ShowConfirmationDialog( title, body, confirmCallback, cancelCallback)
-    local dialog = RTP.UI.InitializeConfirmationDialog()
-    dialog.title.text = title
-    dialog.mainText.text = body
-    dialog.buttons[1].callback = 
-        function()
-            if confirmCallback ~= nil then
-                confirmCallback()
-            end
-        end
-    dialog.buttons[2].callback = 
-        function()
-            if cancelCallback ~= nil then
-                cancelCallback()
-            end
-        end
-
-    ZO_Dialogs_ShowDialog( RTP.CONST.DIALOG_CONFIRM )
+local function SetupScene(name, dialogFragment, callback)
+    local scene = ZO_Scene:New(name, SCENE_MANAGER)
+    
+    scene:RegisterCallback("StateChange", callback)
+    scene:AddFragment(dialogFragment)
+    scene:AddFragment(STOP_MOVEMENT_FRAGMENT)
+    scene:AddFragmentGroup(FRAGMENT_GROUP.MOUSE_DRIVEN_UI_WINDOW)
 end
 
-function RTP.UI.ShowSelectDestinationDialog(portalDescription)
-end
+function RTP.UI.InitializeDestinationList()
+    local listContainer = RTPSelectDestinationDialog:GetNamedChild("List")
+    
+    AddDivider("SelectTitleDivider", RTPSelectDestinationDialog)
+    AddDivider("TravelTitleDivider", RTPTravelConfirmationDialog)
+
+    local scrollData = {
+        name = "SelectDestinationScrollList",
+        parent = listContainer,
+
+        width = 195,
+        height = 240,
+        rowHeight = 23,
+
+        setupCallback = SetupDestinationRow,
+        selectCallback = OnDestinationSelected
+    }
+
+    selectDestinationScrollList = libScroll:CreateScrollList(scrollData)
+    selectDestinationScrollList:SetAnchor(TOPLEFT, listContainer, TOPLEFT, 15, 3)
+
+    SetupScene("RTPSelectDestination", ZO_SimpleSceneFragment:New(RTPSelectDestinationDialog), 
+            function(oldState, newState) SelectDestinationSceneState = newState end)
+    SetupScene("RTPTravelConfirmation", ZO_SimpleSceneFragment:New(RTPTravelConfirmationDialog),
+            function(oldState, newState)
+                TravelConfirmationSceneState = newState
+                if newState == SCENE_HIDDEN then
+                    KEYBIND_STRIP:RemoveKeybindButton(travelKeybindDesc)
+                end
+                if newState == SCENE_SHOWN then
+                    KEYBIND_STRIP:AddKeybindButton(travelKeybindDesc)
+                end
+            end)
+end 

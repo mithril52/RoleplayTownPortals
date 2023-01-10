@@ -155,7 +155,6 @@ function RTP.CreateMapPins()
         {
             callback    = function(pin) 
                 local _,tag = pin:GetPinTypeAndTag()
-                d(tag)
                 if tag.destinations == nil or GetTableLength(tag.destinations) == 0 then return end
 
                 if GetTableLength(tag.destinations) == 1 then
@@ -205,7 +204,7 @@ function RTP.CheckPortals()
                     RTP.ChangedZone = false
                 else
                     if GetTableLength(value.destinations) == 1 and value.showMulti == nil then
-                        RTP.UI.ShowPortalConfirmation(value.destinations[1], value)
+                        RTP.UI.ShowTravelConfirmation(value)
                     else
                         RTP.UI.ShowSelectLocationDialog(value)
                     end
@@ -218,7 +217,7 @@ function RTP.CheckPortals()
 
     if RTP.InPortal then
         RTP.InPortal = false
-        ZO_Dialogs_ReleaseAllDialogs()
+
         return
     end
     

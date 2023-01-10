@@ -1,0 +1,26 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="RTPTravelConfirmationDialog" mouseEnabled="true" hidden="true">
+            <Dimensions x="420" y="270" />
+            <Anchor point="CENTER" />
+            <Controls>
+                <Backdrop name="$(parent)BG" inherits="ZO_DefaultBackdrop">
+                    <Dimensions x="400" y="260"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)"/>
+                </Backdrop>
+                <Label name="$(parent)Title" font="ZoFontWindowTitle" wrapMode="ELLIPSIS" horizontalAlignment="CENTER" text="Travel to Destination">
+                    <Anchor point="TOP" relativeTo="$(parent)BG" offsetY="10"/>
+                </Label>
+                <Control name="$(parent)BodyContainer">
+                    <Dimensions x="365"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetY="70" offsetX="20"/>
+                    <Controls>
+                        <Label name="$(parent)Body" font="ZoFontGame" horizontalAlignment="LEFT">
+                            <AnchorFill/>
+                        </Label>
+                    </Controls>
+                </Control>
+            </Controls>
+        </TopLevelControl>
+    </Controls>
+</GuiXml>

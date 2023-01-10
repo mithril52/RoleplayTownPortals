@@ -2,8 +2,6 @@ if not RTP then RTP = { } end
 if not RTP.UI then RTP.UI = { } end
 if not RTP.UTIL then RTP.UTIL = { } end
 
-local libDialog = LibDialog
-
 RTP.DefaultVars = {
     IndicatorOffsetX = 0,
     IndicatorOffsetY = 100,
@@ -32,6 +30,7 @@ function RTP.WaitForSceneManager()
     HUD_UI_SCENE:AddFragment(fragment)
     
     RTP.InitializeLocations()
+    RTP.UI.InitializeDestinationList()
 end
 
 function RTP.IndicatorMinimizedChanged()
@@ -49,7 +48,6 @@ end
 
 function RTP.OnAddOnLoaded(event, addonName)
     if addonName == RTP.ADDON_NAME then
-        libDialog:OnLibraryLoaded(event, addonName)
         RTP.Initialize()
         EVENT_MANAGER:UnregisterForEvent(RTP.ADDON_NAME, EVENT_ADD_ON_LOADED)
     end

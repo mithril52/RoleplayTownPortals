@@ -1,12 +1,11 @@
 ## Title: Role-Play Town Portals
 ## Author: Baene (@mithril52)
 ## APIVersion: 101035
-## AddOnVersion: 1.13
+## AddOnVersion: 2.0
 ## IsLibrary: False
-## DependsOn: LibCustomMenu LibMapPins-1.0 CustomCompassPins
+## DependsOn: LibCustomMenu LibMapPins-1.0 CustomCompassPins LibScroll
 ## SavedVariables: SavedVars
 
-LibDialog.lua
 LocationData.lua
 Constants.lua
 Utility.lua
@@ -16,3 +15,5 @@ Startup.lua
 
 Xml/Indicator.xml
 Xml/ZoneChangeIndicator.xml
+Xml/SelectDestinationDialog.xml
+Xml/TravelConfirmationDialog.xml

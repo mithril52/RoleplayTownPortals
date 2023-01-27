@@ -155,7 +155,6 @@ function RTP.CreateMapPins()
         {
             callback    = function(pin) 
                 local _,tag = pin:GetPinTypeAndTag()
-                if tag.destinations == nil or GetTableLength(tag.destinations) == 0 then return end
 
                 if GetTableLength(tag.destinations) == 1 then
                     RTP.UI.JumpToPortalLocationById(tag.destinations[1])

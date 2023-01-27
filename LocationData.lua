@@ -44,34 +44,37 @@ RTP.Locations = {
     [23] = {id = 23, houseId = 63, owner = "@BoneDecipherer", townId = 1, name = "Mercury & Maps", desc = "(Alchemical Shop)"},
     [24] = {id = 24, houseId = 18, owner = "@Larawyn", townId = 1, name = "The Wharf Rat", desc = "(Tavern)"},
     [25] = {id = 25, houseId = 28, owner = "@Zulavi", townId = 1, name = "Malraz's Workshop"},
-    [26] = {id = 26, houseId = 28, owner = "@Shadoe12", townId = 1, name = "Property Available", desc = "(Forgemaster)"},
+    [26] = {id = 26, houseId = 28, owner = "@mithril52", townId = 1, name = "Property Available", desc = "(Forgemaster)"},
     [27] = {id = 27, houseId = 17, owner = "@Larawyn", townId = 1, name = "Captain's Quarters"},
     [28] = {id = 28, houseId = 28, owner = "@Andinian", townId = 1, name = "Brennson's Workshop"},
+    [29] = {id = 29, houseId = 28, owner = "@Garak234", townId = 1, name = "Ilvelin's Homestead"},
+    [30] = {id = 30, houseId = 81, owner = "@Shadoe12", townId = 1, name = "Barn Owl Brewery"},
+    [31] = {id = 31, houseId = 48, owner = "@Shadoe12", townId = 1, name = "Odd's End"},
 }
 RTP.Portals = {
     [1] = { --Hofborg: The Borg
         {id = 1, location = 1, destinations = {2}, x = 59173, y = 29521, z = 54668, cx = 0.325924, cy = 0.313501},
         {id = 2, location = 1, destinations = {3}, x = 66138, y = 29242, z = 59534, cx = 0.480059, cy = 0.421380},
         {id = 3, location = 1, destinations = {4}, x = 61236, y = 29454, z = 63784, cx = 0.371854, cy = 0.515201},
-        {id = 4, location = 1, destinations = {14}, x = 65873, y = 29226, z = 66023, cx = 0.474501, cy = 0.565054,
-         nameOverride = "Owl Square", showMulti = true, portalDescription = 
-         "|u25:0::Just|u behind the carpenter and blacksmith a small neighborhood of private shops can be found. Many of them are small but upscale and well cared for. The shops may be completely public or owner-occupied with sleeping accommodations"},
+        {id = 4, location = 1, destinations = {14,30}, x = 65873, y = 29226, z = 66023, cx = 0.474501, cy = 0.565054,
+         nameOverride = "Owl Square", showMulti = true, 
+         portalDescription = "|u25:0::Just|u behind the carpenter and blacksmith a small neighborhood of private shops can be found. Many of them are small but upscale and well cared for. The shops may be completely public or owner-occupied with sleeping accommodations"},
         {id = 5, location = 1, destinations = {15}, x = 66386, y = 29134, z = 62304, cx = 0.485780, cy = 0.482674},
         {id = 6, location = 1, destinations = {22}, x = 64051, y = 29226, z = 70608, cx = 0.434129, cy = 0.666558, 
-         showMulti = true, nameOverride = "Rowan Hills", portalDescription = 
-         "|u25:0::Leading|u east out of the Borg is a relatively broad lane which is home to most of the larger houses. Dotted out in a line along the lane each home sits on two or more acres and may offer a variety of services or upscale housing. While many of the homes feature protective walls, the inhabitants, like the other villagers are likely to retreat to the Great Hall or Motherhouse in times of trouble"},
+         showMulti = true, nameOverride = "Rowan Hills", 
+         portalDescription = "|u25:0::Leading|u east out of the Borg is a relatively broad lane which is home to most of the larger houses. Dotted out in a line along the lane each home sits on two or more acres and may offer a variety of services or upscale housing. While many of the homes feature protective walls, the inhabitants, like the other villagers are likely to retreat to the Great Hall or Motherhouse in times of trouble"},
         {id = 7, location = 1, destinations = {8}, x = 61842, y = 29226, z = 67202, cx = 0.385093, cy = 0.591206},
         {id = 8, location = 1, destinations = {5,6}, x = 68156, y = 29208, z = 70752, cx = 0.525008, cy = 0.669827,
-         nameOverride = "North Gate", portalDescription = 
-         "|u25:0::Heading|u north towards the docks you will reach North Gate. Continuing forward will lead you to the Docks in Brygg-bottom. Turning left will lead you into the Village"},
+         nameOverride = "North Gate", 
+         portalDescription = "|u25:0::Heading|u north towards the docks you will reach North Gate. Continuing forward will lead you to the Docks in Brygg-bottom. Turning left will lead you into the Village"},
     },
     [2] = { --Hofborg: The Spirit Woods
         {id = 1, location = 2, destinations = {6}, x = 59170, y = 29521, z = 54670, cx = 0.326087, cy = 0.313501},
         {id = 2, location = 2, destinations = {1}, x = 70367, y = 28976, z = 70341, cx = 0.574044, cy = 0.660673},
         {id = 3, location = 2, destinations = {10}, x = 65871, y = 29338, z = 58991, cx = 0.473848, cy = 0.410592},
         {id = 4, location = 2, destinations = {11}, x = 64907, y = 29226, z = 73029, cx = 0.453089, cy = 0.720170, 
-         nameOverride = "Hawk Claw Trail", showMulti = true, portalDescription = 
-         "|u25:0::Branching|u off from the Spirit Woods is a narrow gate that leads farther away from Hofborg proper and deeper into the heart of Western Skyrim where the style of home is evocative of Solitude's stone walls, heavy wooden posts and wood planking"},
+         nameOverride = "Hawk Claw Trail", showMulti = true, 
+         portalDescription = "|u25:0::Branching|u off from the Spirit Woods is a narrow gate that leads farther away from Hofborg proper and deeper into the heart of Western Skyrim where the style of home is evocative of Solitude's stone walls, heavy wooden posts and wood planking"},
     },
     [3] = { --Hofborg: The Motherhouse
         {id = 1, location = 3, destinations = {1}, x = 50417, y = 39220, z = 94570, cx = 0.277314, cy = 0.799364, radius = 20},
@@ -85,29 +88,29 @@ RTP.Portals = {
     [5] = { --Hofborg: The Docks
         {id = 1, location = 5, destinations = {1}, x = 76652, y = 14513, z = 99360, cx = 0.618104, cy = 0.550230},
         {id = 2, location = 5, destinations = {23}, x = 81657, y = 14319, z = 101067, cx = 0.787284, cy = 0.607930,
-         nameOverride = "Beacon Row", showMulti = true, portalDescription = 
-         "|u25:0::The|u craggy rock strew coastline east of the main Hofborg docks is strewn with narrow towers and defunct lighthouses. Many of them are more then an hour apart from each other; consider taking one of the small skiffs to visit"},
+         nameOverride = "Beacon Row", showMulti = true, 
+         portalDescription = "|u25:0::The|u craggy rock strew coastline east of the main Hofborg docks is strewn with narrow towers and defunct lighthouses. Many of them are more then an hour apart from each other; consider taking one of the small skiffs to visit"},
         {id = 3, location = 5, destinations = {24}, x = 78111, y = 14516, z = 101327, cx = 0.667422, cy = 0.616718},
         {id = 4, location = 5, destinations = {}, x = 78168, y = 14503, z = 94768, cx = 0.669348, cy = 0.395011,
-         nameOverride = "The Narrows", showMulti = true, portalDescription = 
-         "|u25:0::A rabbit|u warren of narrow streets, shops and private homes the back alleys of Brigg-Bottom are built in a style more familiar in High Rock, heavy stone and Tudor being the predominent building materials of these converted warehouses, many of which haven't been used in decades"},
+         nameOverride = "The Narrows", showMulti = true, 
+         portalDescription = "|u25:0::A rabbit|u warren of narrow streets, shops and private homes the back alleys of Brigg-Bottom are built in a style more familiar in High Rock, heavy stone and Tudor being the predominent building materials of these converted warehouses, many of which haven't been used in decades"},
         {id = 5, location = 5, destinations = {}, x = 81556, y = 14509, z = 95241, cx = 0.783870, cy = 0.410999,
-         nameOverride = "Horker Cove", showMulti = true, portalDescription = 
-         "|u25:0::West|u along the coast from Hofborg's main docks lies another set of docks in need of repairs. Small homes dot the landscape perched above the cascading river falls. Many of the smaller docks and private homes lie within a short boat ride to Hofborg, while at least one or more are nearly conjoined and considered part of Hofborg's Brigg-bottom"},
+         nameOverride = "Horker Cove", showMulti = true, 
+         portalDescription = "|u25:0::West|u along the coast from Hofborg's main docks lies another set of docks in need of repairs. Small homes dot the landscape perched above the cascading river falls. Many of the smaller docks and private homes lie within a short boat ride to Hofborg, while at least one or more are nearly conjoined and considered part of Hofborg's Brigg-bottom"},
     },
     [6] = { --Hofborg: The Village
         {id = 1, location = 6, destinations = {1}, x = 59163, y = 29521, z = 54676, cx = 0.325760, cy = 0.313665},
         {id = 2, location = 6, destinations = {2}, x = 72171, y = 28976, z = 61780, cx = 0.613926, cy = 0.471069},
         {id = 3, location = 6, destinations = {25,28}, x = 64349, y = 29226, z = 63640, cx = 0.440667, cy = 0.512259,
-         nameOverride = "Tinder Lane", portalDescription = 
-         "|u25:0::Nestled|u just outside of the village walls is a small cul de sac of various workshops. The small neighborhood is home to many tinkers, smiths and tanners who are not welcome in any abundance in the town proper due to the potential for explosions, burning embers and noxious fumes"},
+         nameOverride = "Tinder Lane", 
+         portalDescription = "|u25:0::Nestled|u just outside of the village walls is a small cul de sac of various workshops. The small neighborhood is home to many tinkers, smiths and tanners who are not welcome in any abundance in the town proper due to the potential for explosions, burning embers and noxious fumes"},
         {id = 4, location = 6, destinations = {13}, x = 65741, y = 29248, z = 59408, cx = 0.471559, cy = 0.418437},
-        {id = 5, location = 6, destinations = {19,17,18}, x = 71308, y = 28976, z = 66516, cx = 0.594802, cy = 0.576005,
-         nameOverride = "White Wood Trail", showMulti = true, portalDescription = 
-         "|u25:0::The|u low rolling hills that dot the country side just outside of the central Village District wind along narrow dirt lanes and low stone fences which divides small land plots suitable for cottages and lodges with gardens"},
+        {id = 5, location = 6, destinations = {19,17,18,29}, x = 71308, y = 28976, z = 66516, cx = 0.594802, cy = 0.576005,
+         nameOverride = "White Wood Trail", showMulti = true, 
+         portalDescription = "|u25:0::The|u low rolling hills that dot the country side just outside of the central Village District wind along narrow dirt lanes and low stone fences which divides small land plots suitable for cottages and lodges with gardens"},
         {id = 6, location = 6, destinations = {16}, x = 68037, y = 29753, z = 59097, cx = 0.522393, cy = 0.411572,
-         nameOverride = "Stone Briar Terrace", showMulti = true, portalDescription = 
-         "|u25:0::Narrow|u stone steps lead up along the western foothills of Thyrrfjell where a series of terraces are home to small cottages built on top of and around the steep boulders and slender pines. A charming path which has drawn admiration from visitors new to the town"},
+         nameOverride = "Stone Briar Terrace", showMulti = true, 
+         portalDescription = "|u25:0::Narrow|u stone steps lead up along the western foothills of Thyrrfjell where a series of terraces are home to small cottages built on top of and around the steep boulders and slender pines. A charming path which has drawn admiration from visitors new to the town"},
     },
     [8] = { --Hofborg: Guard House
         {id = 1, location = 8, destinations = {1}, x = 26343, y = 20019, z = 25502, cx = 0.717911, cy = 0.364741},
@@ -132,7 +135,7 @@ RTP.Portals = {
     },
     [15] = { --Hofborg: Kyne's Keg, (Inn)
         {id = 1, location = 15, destinations = {1}, x = 26319, y = 26643, z = 19711, cx = 0.724690, cy = 0.549485},
-        {id = 2, location = 15, destinations = {24}, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665, nameOverride = "Back Alley to The Wharf Rat"},
+        {id = 2, location = 15, destinations = {30}, x = 27072, y = 26716, z = 24983, cx = 0.726573, cy = 0.562665},
     },
     [16] = { --Hofborg: Healer's Cottage
         {id = 1, location = 16, destinations = {6}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
@@ -160,19 +163,29 @@ RTP.Portals = {
     },
     [24] = { --Hofborg: The Wharf Rat
         {id = 1, location = 24, destinations = {5}, x = 66592, y = 7603, z = 74518, cx = 0.642293, cy = 0.206978},
-        {id = 2, location = 24, destinations = {27}, x = 68160, y = 7604, z = 73100, cx = 0.664907, cy = 0.186526, radius = 120},
-        {id = 3, location = 24, destinations = {15}, x = 64789, y = 7604, z = 73233, cx = 0.616289, cy = 0.188445, radius = 120, nameOverride = "Back Alley to Kyne's Keg"},
+        {id = 2, location = 24, destinations = {27}, x = 64789, y = 7604, z = 73233, cx = 0.616289, cy = 0.188445, radius = 120},
+        {id = 3, location = 24, destinations = {30}, x = 69457, y = 13214, z = 72206, cx = 0.683613, cy = 0.173633},
     },
     [25] = { --Hofborg: Malraz's Workshop
         {id = 1, location = 25, destinations = {6}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [26] = { --Hofborg: Property Available
-        {id = 1, location = 26, destinations = {5}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
     },
     [27] = { --Hofborg: Captain's Quarters
         {id = 1, location = 27, destinations = {24}, x = 58055, y = 9701, z = 31194, cx = 0.697752, cy = 0.419204},
     },
     [28] = { --Hofborg: Brennen's Workshop
         {id = 1, location = 28, destinations = {6}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+    },
+    [29] = { --Hofborg: Ilvelin's Homestead
+        {id = 1, location = 29, destinations = {6}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
+    },
+    [30] = { --Hofborg: Barn Owl Brewery
+        {id = 1, location = 30, destinations = {1}, x = 165387, y = 27707, z = 152042, cx = 0.669159, cy = 0.167601},
+        {id = 2, location = 30, destinations = {24}, x = 162097, y = 28039, z = 153094, cx = 0.489040, cy = 0.225205},
+        {id = 3, location = 30, destinations = {15}, x = 165923, y = 28025, z = 157681, cx = 0.698499, cy = 0.476296},
+    },
+    [31] = { --Hofborg: Odd's End
+        {id = 1, location = 31, destinations = {24}, x = 50417, y = 39220, z = 94570, cx = 0.277314, cy = 0.799364, radius = 20},
     },
 }

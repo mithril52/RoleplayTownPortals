@@ -190,6 +190,10 @@ local function SetupScene(name, dialogFragment, callback)
     scene:AddFragmentGroup(FRAGMENT_GROUP.MOUSE_DRIVEN_UI_WINDOW)
 end
 
+local function SortScrollList(objA, objB)
+    return objA.data.name:len() < objB.data.name:len()
+end
+
 function RTP.UI.InitializeDestinationList()
     local listContainer = RTPSelectDestinationDialog:GetNamedChild("List")
     
@@ -205,7 +209,8 @@ function RTP.UI.InitializeDestinationList()
         rowHeight = 23,
 
         setupCallback = SetupDestinationRow,
-        selectCallback = OnDestinationSelected
+        selectCallback = OnDestinationSelected,
+        sortFunction = SortScrollList
     }
 
     selectDestinationScrollList = libScroll:CreateScrollList(scrollData)
@@ -223,4 +228,4 @@ function RTP.UI.InitializeDestinationList()
                     KEYBIND_STRIP:AddKeybindButton(travelKeybindDesc)
                 end
             end)
-end 
+end

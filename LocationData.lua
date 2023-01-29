@@ -165,6 +165,7 @@ RTP.Portals = {
         {id = 1, location = 24, destinations = {5}, x = 66592, y = 7603, z = 74518, cx = 0.642293, cy = 0.206978},
         {id = 2, location = 24, destinations = {27}, x = 64789, y = 7604, z = 73233, cx = 0.616289, cy = 0.188445, radius = 120},
         {id = 3, location = 24, destinations = {30}, x = 69457, y = 13214, z = 72206, cx = 0.683613, cy = 0.173633},
+        {id = 4, location = 24, destinations = {31}, x = 68131, y = 7010, z = 73432, cx = 0.664489, cy = 0.191315},
     },
     [25] = { --Hofborg: Malraz's Workshop
         {id = 1, location = 25, destinations = {6}, x = 36926, y = 26424, z = 39052, cx = 0.251058, cy = 0.347700},
